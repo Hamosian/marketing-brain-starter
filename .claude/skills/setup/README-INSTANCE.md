@@ -200,7 +200,7 @@ Reading the branches: triaged work moves straight to planned when the scope is c
 
 [Agent Flow](https://github.com/patoles/agent-flow) can be added as a real-time visualization layer for Claude Code and Codex runs. It lets the team watch the Marketing OS route work, branch into skills, call tools, and return learning as an interactive node graph.
 
-![Agent Flow visualization layer](assets/agent-flow-visualization-layer.png)
+![Agent Flow visualization layer](assets/agent-flow-live-screenshot.png)
 
 Quick start:
 
