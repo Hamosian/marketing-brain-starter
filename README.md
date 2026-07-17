@@ -202,7 +202,31 @@ The starter is intentionally small. The intended path:
 - [Claude Code](https://claude.com/claude-code) (CLI, desktop, or web)
 - Work tracking in monday.com by default, or Notion/ClickUp if you adapt the tracker references and skills
 - Slack for team and partner communication
-- Optional integrations as your team needs them: CRM, analytics, ad platforms, CMS, GitHub, Google Drive, Graphify, or other marketing systems
+- Optional integrations as your team needs them: CRM, analytics, ad platforms, CMS, GitHub, Google Drive, Graphify, Agent Flow, or other marketing systems
+
+## Optional Add-On: Agent Flow
+
+[Agent Flow](https://github.com/patoles/agent-flow) can be added as a real-time visualization layer for Claude Code and Codex runs. It lets the team watch the Marketing OS route work, branch into skills, call tools, and return learning as an interactive node graph.
+
+![Agent Flow visualization layer](assets/agent-flow-visualization-layer.png)
+
+Quick start:
+
+```bash
+npx agent-flow-app
+```
+
+For a modifiable local version:
+
+```bash
+git clone https://github.com/patoles/agent-flow.git
+cd agent-flow
+pnpm i
+pnpm run setup
+pnpm run dev
+```
+
+Open the visualizer, start a Claude Code or Codex session in this repo, and use it to inspect live routing, tool calls, token flow, and handoffs. Teams that prefer an editor panel can install the Agent Flow VS Code extension instead.
 
 ## Optional Add-On: Graphify
 

@@ -196,6 +196,30 @@ Reading the branches: triaged work moves straight to planned when the scope is c
 
 ## Optional Add-Ons
 
+### Agent Flow
+
+[Agent Flow](https://github.com/patoles/agent-flow) can be added as a real-time visualization layer for Claude Code and Codex runs. It lets the team watch the Marketing OS route work, branch into skills, call tools, and return learning as an interactive node graph.
+
+![Agent Flow visualization layer](assets/agent-flow-visualization-layer.png)
+
+Quick start:
+
+```bash
+npx agent-flow-app
+```
+
+For a modifiable local version:
+
+```bash
+git clone https://github.com/patoles/agent-flow.git
+cd agent-flow
+pnpm i
+pnpm run setup
+pnpm run dev
+```
+
+Open the visualizer, start a Claude Code or Codex session in this repo, and use it to inspect live routing, tool calls, token flow, and handoffs. Teams that prefer an editor panel can install the Agent Flow VS Code extension instead.
+
 ### Graphify
 
 [Graphify](https://github.com/Graphify-Labs/graphify) can generate a visual, queryable knowledge graph from this repo when the team wants another way to explore systems, skills, references, and docs.
