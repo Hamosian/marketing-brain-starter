@@ -23,7 +23,7 @@ The CRM and Lifecycle system is where marketing turns audience intent into targe
 | HubSpot / Marketo | Lists, forms, emails, workflows, scoring | Lifecycle Marketing |
 | Salesforce | Leads, contacts, accounts, opportunities, routing status | Sales Ops |
 | Data warehouse | Product usage, account traits, enrichment fields | Data |
-| monday Marketing Tasks | Requested lifecycle changes and campaign tasks | Marketing Ops |
+| Work tracker Marketing Tasks | Requested lifecycle changes and campaign tasks | Marketing Ops |
 
 ## Operating Model
 

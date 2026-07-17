@@ -1,6 +1,6 @@
 ---
 name: marketing-os
-description: Top-level operating agent for the marketing team. Use for broad marketing requests, campaign planning, launch triage, channel prioritization, performance diagnosis, cross-system investigations, weekly operating rhythm, "run the marketing OS", "triage marketing", "plan this campaign", or any request that spans CRM, lifecycle, paid acquisition, website, content, SEO, analytics, Slack, monday, or partner teams.
+description: Top-level operating agent for the marketing team. Use for broad marketing requests, campaign planning, launch triage, channel prioritization, performance diagnosis, cross-system investigations, weekly operating rhythm, "run the marketing OS", "triage marketing", "plan this campaign", or any request that spans CRM, lifecycle, paid acquisition, website, content, SEO, analytics, Slack, monday, Notion, ClickUp, or partner teams.
 user-invocable: true
 ---
 
@@ -33,7 +33,7 @@ Do not do every specialist task yourself. Route to sub-agent skills when they ex
    - If no sub-agent fits, use the closest workflow skill and propose a new one only after the immediate task is handled.
 
 4. **Keep operating state explicit**
-   - monday (or the documented tracker) is the source for work state.
+   - monday, Notion, ClickUp, or the documented tracker is the source for work state.
    - Slack is the source for discussion, approvals, and outbound coordination.
    - CRM, CMS, ad platforms, analytics, and reporting tools are sources for execution and evidence.
    - This repo is the source for durable marketing knowledge and workflow instructions.
@@ -50,7 +50,7 @@ A fresh instance starts with the core skills:
 
 | Domain | Use this skill | Owns |
 |--------|----------------|------|
-| Work intake and task briefs | `pm-story` | campaign-ready monday task creation |
+| Work intake and task briefs | `pm-story` | campaign-ready tracker task creation |
 | Learning and repo hygiene | `retro`, `curious-intern`, `health-check` | durable knowledge, gaps, stale context |
 
 As the team adds domain skills for CRM, lifecycle, paid acquisition, website, SEO, content, events, partner marketing, or measurement, add them to `CLAUDE.md` and route through them here.
@@ -95,10 +95,10 @@ Use these states when creating or updating work:
 
 ## Approval Rules
 
-- Never mutate CRM, monday, Slack, CMS, ad platforms, email tools, or production workflows without user confirmation unless a specific automation skill explicitly allows it.
+- Never mutate CRM, monday, Notion, ClickUp, Slack, CMS, ad platforms, email tools, or production workflows without user confirmation unless a specific automation skill explicitly allows it.
 - Draft outbound Slack/email/customer-facing copy before sending.
 - For analysis, name the source and limitation before making a recommendation.
-- For task creation, use `pm-story` rather than creating monday items directly.
+- For task creation, use `pm-story` rather than creating tracker items directly.
 
 ## Output Formats
 

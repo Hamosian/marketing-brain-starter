@@ -52,7 +52,7 @@ Flag missing sections.
 Check:
 
 - `references/monday_boards.md` last verified date
-- monday board IDs and key columns are documented
+- Tracker IDs and key fields are documented for monday, Notion, or ClickUp
 - `references/slack.md` has channel IDs for channels used in skills
 - `references/other_teams.md` has contact and intake path for partner teams named in system docs
 - `references/team.md` has Slack IDs and emails for team members
@@ -65,7 +65,7 @@ Check:
 - Broad task routing in `CLAUDE.md` points to `/marketing-os`
 - Every skill named in the Sub-Agent Registry exists
 - Skill frontmatter includes `name:` and `description:`
-- Skills that write to CRM, monday, Slack, CMS, ad platforms, or email tools have approval rules
+- Skills that write to CRM, monday, Notion, ClickUp, Slack, CMS, ad platforms, or email tools have approval rules
 - Domain skills name their expected output or closeout format
 
 ### 6. Marketing Specificity

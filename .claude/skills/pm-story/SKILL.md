@@ -8,6 +8,8 @@ user-invocable: true
 
 Use this skill to turn a loose marketing request into a useful monday item. The output should read like something a campaign owner, channel owner, designer, analyst, or lifecycle marketer can act on without another meeting.
 
+The default implementation uses monday.com MCP calls. If the team uses Notion or ClickUp instead, keep the same brief structure but adapt the load/write steps to the team's configured tracker connector and field reference.
+
 Two cases:
 
 - **New item:** The user has an idea or request with no monday item yet.

@@ -1,6 +1,6 @@
 ---
 name: good-morning
-description: Use this skill when the user says "good morning", "morning brief", "daily brief", "daily standup", "catch me up", "what happened overnight", "what's going on today", "start of day", or wants a daily marketing summary of active monday work, open blockers, Slack activity, upcoming launches, risks, and recommended next actions.
+description: Use this skill when the user says "good morning", "morning brief", "daily brief", "daily standup", "catch me up", "what happened overnight", "what's going on today", "start of day", or wants a daily marketing summary of active tracker work, open blockers, Slack activity, upcoming launches, risks, and recommended next actions.
 ---
 
 # Good Morning Marketing Brief
@@ -15,9 +15,9 @@ Read the **Morning Brief Sources** table from `CLAUDE.md`. For each source where
 
 ## Source Handling
 
-### Active Marketing Work (monday)
+### Active Marketing Work (tracker)
 
-Use the configured board from `references/monday_boards.md`.
+Use the configured board, database, or list from `references/monday_boards.md`.
 
 Filter based on the documented board schema:
 
@@ -29,7 +29,7 @@ Filter based on the documented board schema:
 
 Fetch fields that help the brief: owner, status, priority, work type, channel, campaign, due or launch date, name, and URL.
 
-### Unowned Requests Or Blockers (monday)
+### Unowned Requests Or Blockers (tracker)
 
 Use the same board unless another source is configured. Look for:
 
@@ -93,7 +93,7 @@ If a section has no items, say so in one line and move on.
 
 End with 3-5 concrete actions derived from the data. If the user picks one, help immediately:
 
-- Create or update a monday task with `/pm-story`
+- Create or update a tracker task with `/pm-story`
 - Draft a Slack reply
 - Open the relevant system doc
 - Prepare a quick triage table

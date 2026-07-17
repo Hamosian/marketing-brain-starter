@@ -34,7 +34,7 @@ Group skills by marketing operating domain:
 | Skill | Say something like... | What it does |
 |-------|-----------------------|--------------|
 | `marketing-os` | "run the marketing OS", "plan this campaign" | Routes broad marketing requests and synthesizes the next move |
-| `pm-story` | "create a task", "write this up" | Turns requests into campaign-ready monday briefs |
+| `pm-story` | "create a task", "write this up" | Turns requests into campaign-ready tracker briefs |
 
 ### Knowledge & Learning
 ...

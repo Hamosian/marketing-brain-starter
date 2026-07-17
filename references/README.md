@@ -4,7 +4,7 @@ Stable lookup data used by marketing skills and agents. These files hold IDs, ow
 
 ## What Belongs Here
 
-- monday board IDs, group IDs, column keys, and exact status labels
+- Work tracker IDs and fields: monday board IDs/column keys by default, or Notion database IDs / ClickUp list IDs and exact status labels
 - Slack channel IDs, user groups, announcement channels, and intake channels
 - Marketing team roster and focus areas
 - Partner team contacts, intake paths, and escalation channels

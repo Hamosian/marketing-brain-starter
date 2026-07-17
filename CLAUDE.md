@@ -31,7 +31,7 @@ CLAUDE.md (always loaded)
 | `references/team.md` | Marketing team roster, focus areas, Slack IDs, and emails |
 | `references/other_teams.md` | Product, Sales, Data, Design, Web, and other partner teams |
 | `references/slack.md` | Channel IDs, announcement channels, intake channels, and user groups |
-| `references/monday_boards.md` | monday board IDs, planning boards, campaign boards, and column keys |
+| `references/monday_boards.md` | Work tracker IDs and fields: monday boards by default, or equivalent Notion databases / ClickUp lists |
 
 ## Systems Reference
 
@@ -74,7 +74,7 @@ After a new workflow, unexpected blocker, or campaign learning, suggest `/retro`
 
 If the content changes every time a platform refreshes, it belongs in that platform. If it helps Claude understand how marketing work should run across tools, it belongs here.
 
-- **Pointers, not copies** - link to dashboards, monday boards, CRM lists, ad accounts, CMS pages, briefs, and asset folders.
+- **Pointers, not copies** - link to dashboards, monday boards, Notion databases, ClickUp lists, CRM lists, ad accounts, CMS pages, briefs, and asset folders.
 - **Progressive disclosure** - put IDs, views, URLs, account names, and platform details in `systems/`, `references/`, or skill `knowledge/` files.
 - **Marketing decision context** - capture audience, offer, channel, owner, success metric, approval path, and launch date whenever they matter.
 
@@ -94,9 +94,9 @@ Edits to `CLAUDE.md`, `systems/**`, `references/**`, and `.claude/skills/**` are
 - **Lead:** {{TEAM_LEAD_NAME}}
 - **Manager:** {{MANAGER_NAME}}
 - **Marketing stack:** {{TECH_STACK}}
-- **monday workspace:** `{{MONDAY_WORKSPACE}}.monday.com`
+- **Work tracker:** monday.com by default (`{{MONDAY_WORKSPACE}}.monday.com`), or Notion/ClickUp if adapted
 - **Primary Slack:** `#{{TEAM_SLACK_CHANNEL}}` (channel ID: `{{TEAM_SLACK_CHANNEL_ID}}`)
-- **Primary monday board:** Tasks `{{MONDAY_TASKS_BOARD_ID}}` (full details in `references/monday_boards.md`)
+- **Primary tracker board/list/database:** Tasks `{{MONDAY_TASKS_BOARD_ID}}` (full details in `references/monday_boards.md` or the adapted tracker reference)
 
 Full roster, Slack IDs, emails, and focus areas live in `references/team.md`.
 
@@ -107,7 +107,7 @@ Different marketing requests use different entry points. If a skill exists for t
 | Task type | Start with |
 |-----------|------------|
 | Broad or cross-channel marketing work | `/marketing-os` - routes, prioritizes, synthesizes, and closes the loop |
-| Campaign, content, CRM, or ops task creation | `/pm-story` - writes the full monday brief |
+| Campaign, content, CRM, or ops task creation | `/pm-story` - writes the full tracker brief |
 | Daily work and risk scan | `/good-morning` |
 | Capturing campaign or workflow learnings | `/retro` |
 | Checking repo health | `/health-check` |
@@ -146,11 +146,11 @@ The `/good-morning` skill reads this table to decide what to include in the dail
 
 | Source | Type | Config | Enabled |
 |--------|------|--------|---------|
-| Active marketing work | monday | board: `{{MONDAY_TASKS_BOARD_ID}}` | Yes |
-| Unowned requests or blockers | monday | board: `{{MONDAY_TASKS_BOARD_ID}}`, owner empty or blocked | Yes |
+| Active marketing work | tracker | monday board / Notion database / ClickUp list: `{{MONDAY_TASKS_BOARD_ID}}` | Yes |
+| Unowned requests or blockers | tracker | owner empty or blocked in the configured tracker | Yes |
 | Slack: team channel | slack | channel: `{{TEAM_SLACK_CHANNEL_ID}}` (#{{TEAM_SLACK_CHANNEL}}) | Yes |
-<!-- | Campaign calendar | monday | board: your-campaign-calendar-board | No | -->
-<!-- | Website launches | monday | board: your-website-board | No | -->
+<!-- | Campaign calendar | tracker | monday board / Notion database / ClickUp list: your-campaign-calendar | No | -->
+<!-- | Website launches | tracker | monday board / Notion database / ClickUp list: your-website-work | No | -->
 <!-- | Open PRs | github | repos: your-org/your-repo | No | -->
 <!-- | Merged PRs | github | repos: your-org/your-repo | No | -->
 
@@ -159,10 +159,10 @@ The `/good-morning` skill reads this table to decide what to include in the dail
 - **Marketing OS first:** If a request spans channels, platforms, audiences, launch timing, prioritization, or unclear marketing intent, use `/marketing-os`.
 - **Evidence beats vibes:** Name the source and limitation behind performance claims, audience claims, or prioritization recommendations.
 - **Load context proactively:** When a request mentions a system, channel, campaign, or platform, load its system doc before acting.
-- **Approval before writes:** Ask before mutating CRM records, monday items, ad platforms, CMS pages, Slack messages, email tools, or production workflows unless a specific automation explicitly allows it.
+- **Approval before writes:** Ask before mutating CRM records, monday items, Notion pages/databases, ClickUp tasks, ad platforms, CMS pages, Slack messages, email tools, or production workflows unless a specific automation explicitly allows it.
 - **Campaign-ready output:** For briefs and tasks, capture why it matters, audience, message/offer, channel/surface, owner, due date, and Done When.
 - **Slack tone:** Messages sent for the team should be warm, clear, and human. Reply in-thread when the context is a thread.
 - **Slack attribution:** Every Slack message sent by an agent ends with `_Posted by the team's AI agent_`.
-- **Monday task creation:** Use `/pm-story` for task creation so the board gets a complete marketing brief instead of a bare title.
+- **Task creation:** Use `/pm-story` for task creation so the tracker gets a complete marketing brief instead of a bare title.
 - **Self-improvement:** When a workflow produces a non-obvious learning, suggest `/retro`.
 - **Partner context:** If a task involves another team, check `references/other_teams.md` for contact, channel, intake path, and context repo.

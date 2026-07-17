@@ -20,7 +20,7 @@ Present:
 
 - Who the marketing team is and what it owns
 - The core systems and partner-owned dependencies
-- The main Slack channels and monday boards
+- The main Slack channels and tracker boards/databases/lists
 - How work enters, moves, launches, and gets measured
 - Which skills are available and when to use them
 - The fastest way for a new teammate to get productive

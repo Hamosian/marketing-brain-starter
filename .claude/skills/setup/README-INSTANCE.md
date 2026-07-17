@@ -10,7 +10,7 @@ Open Claude Code in this repo and say any of these:
 |----------|--------------|
 | "good morning" | Daily marketing brief with active work, blockers, Slack highlights, and next moves |
 | "run the marketing OS" | Triage or plan broad marketing work across systems and channels |
-| "create a task" | Campaign-ready monday task with Why, Audience, Message, Channel, and Done When |
+| "create a task" | Campaign-ready tracker task with Why, Audience, Message, Channel, and Done When |
 | "interview me" | Claude extracts marketing tribal knowledge and updates the repo |
 | "let's retro" | Captures campaign or workflow learnings for next time |
 | "health check" | Finds stale docs, missing references, and routing gaps |
@@ -22,7 +22,7 @@ Open Claude Code in this repo and say any of these:
 |-------|-----------------|-------------|
 | `marketing-os` | "run the marketing OS", "triage marketing", "plan this campaign" | Top-level router for broad campaign, channel, planning, and performance work |
 | `good-morning` | "good morning", "morning brief", "catch me up" | Daily brief with active marketing work, blockers, Slack highlights, and actions |
-| `pm-story` | "create a task", "write this up", "turn this into a brief" | Structured monday task creation grounded in marketing context |
+| `pm-story` | "create a task", "write this up", "turn this into a brief" | Structured work-tracker task creation grounded in marketing context |
 | `retro` | "let's retro", "capture what we learned" | Captures launch, campaign, and workflow learnings in the repo |
 | `health-check` | "health check", "stale docs" | Checks freshness, placeholders, references, and skill routing |
 | `curious-intern` | "interview me", "fill gaps", "brain dump" | Interview flow for extracting marketing tribal knowledge |

@@ -1,11 +1,11 @@
-# Monday Boards Reference
+# Work Tracker Reference
 
-> Board IDs, workspace info, group rules, and column keys used by marketing skills. Verify this data periodically so task creation and daily briefs stay accurate.
+> Work tracker IDs, workspace info, group/view/list rules, and field keys used by marketing skills. The starter is wired for monday.com by default. If your team uses Notion or ClickUp, document the equivalent database/list IDs and fields here, then adapt tracker-specific skills/tools.
 
-**Workspace:** `{{MONDAY_WORKSPACE}}.monday.com`
+**Workspace:** `{{MONDAY_WORKSPACE}}.monday.com` by default, or the equivalent Notion workspace / ClickUp space-folder path
 **Last verified:** {{SETUP_DATE}}
 
-## Boards
+## Boards / Databases / Lists
 
 | Board | ID | Purpose |
 |-------|----|---------|
@@ -28,12 +28,12 @@
 
 ## Column Keys - Marketing Tasks Board
 
-Column keys are board-specific. Fill these in by inspecting the board, because skills only set columns documented here.
+Column or field keys are tracker-specific. Fill these in by inspecting the board, Notion database, or ClickUp list, because skills only set fields documented here.
 
 | Column | Key | Type | Labels / notes |
 |--------|-----|------|----------------|
 | Status | `status` | status | e.g. `New`, `In Progress`, `Blocked`, `Ready for Review`, `Done` - use exact labels |
-| Owner | `person` | people | numeric monday user IDs via `list_users_and_teams` |
+| Owner | `person` | people | numeric monday user IDs via `list_users_and_teams`, or equivalent Notion/ClickUp user IDs |
 <!-- | Priority | `priority` | status | e.g. `Critical`, `High`, `Medium`, `Low` | -->
 <!-- | Work type | `type` | status | e.g. `Campaign`, `Content`, `CRM`, `Website`, `Paid`, `Analytics`, `Request` | -->
 <!-- | Channel | `channel` | dropdown/status | e.g. `Email`, `Paid Social`, `SEO`, `Web`, `Events`, `Partner` | -->
@@ -43,7 +43,7 @@ Column keys are board-specific. Fill these in by inspecting the board, because s
 
 ## Gotchas
 
-- Board IDs are the number in the URL after `/boards/`.
+- monday board IDs are the number in the URL after `/boards/`; Notion and ClickUp IDs should be copied from their database/list URLs or API metadata.
 - Status columns require the exact label text that exists on the board.
 - Person columns in `create_item` need `{"personsAndTeams": [{"id": <numeric-id>, "kind": "person"}]}`.
 - Document parked groups clearly. Otherwise daily briefs may treat backlog or old launch tasks as active work.

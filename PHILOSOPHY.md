@@ -33,7 +33,7 @@ If the learning stays in one person's chat history, the team loses it. If it lan
 
 ### 4. Treat Claude as a Marketing Ops Interface
 
-Every time you click through the same web interface - monday boards, CRM workflows, CMS pages, ad account settings, analytics dashboards, Slack approvals - ask: "Can this become a skill?"
+Every time you click through the same web interface - monday boards, Notion databases, ClickUp lists, CRM workflows, CMS pages, ad account settings, analytics dashboards, Slack approvals - ask: "Can this become a skill?"
 
 A good skill turns a repeated workflow into a consistent operating path with fewer dropped steps and better handoffs.
 
@@ -71,7 +71,7 @@ The repo works through **progressive disclosure**: give Claude a map first, then
 
 2. Targeted files (loaded on demand)
    - "Check lifecycle nurture performance" -> read the CRM/lifecycle system doc
-   - "Create a task" -> trigger pm-story and read monday board references
+   - "Create a task" -> trigger pm-story and read the configured tracker references
 
 3. Deep knowledge (loaded within skills)
    - A skill may load campaign checklists, query patterns, or platform-specific notes
@@ -87,7 +87,7 @@ The result: Claude gets enough context to act well without dragging every campai
 | Team identity and routing rules | `CLAUDE.md` | Primary Slack channel, morning brief sources, skill registry |
 | Marketing platforms and workflows | `systems/owned/*.md` | CRM lifecycle, website CMS, paid acquisition, campaign calendar |
 | Partner-owned dependencies | `systems/reference/*.md` | Product analytics, brand library, data warehouse, sales CRM |
-| Stable lookup data | `references/*.md` | Slack channel IDs, monday column keys, partner contacts |
+| Stable lookup data | `references/*.md` | Slack channel IDs, tracker field names, monday column keys, Notion database IDs, ClickUp list IDs, partner contacts |
 | Repeatable workflows | `.claude/skills/*/SKILL.md` | Launch brief, campaign retro, content refresh, reporting readout |
 | Heavy reference within a skill | `.claude/skills/*/knowledge/*.md` | Query patterns, checklist details, platform caveats |
 | Code-level conventions | That code repo's `CLAUDE.md` | Frontend patterns, API conventions, deployment rules |

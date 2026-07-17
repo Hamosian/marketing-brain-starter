@@ -69,7 +69,7 @@ What this system does, who uses it, and why it matters to marketing outcomes.
 ## How Claude Works With This
 | Action | How |
 |--------|-----|
-| Make changes | Platform/admin path, monday board, CMS, CRM, or skill |
+| Make changes | Platform/admin path, monday board, Notion database, ClickUp list, CMS, CRM, or skill |
 | Investigate | Dashboard, report, Slack channel, query, or owner |
 | Publish / launch | Approval path, scheduler, or handoff owner |
 
@@ -111,7 +111,7 @@ What this system does, who uses it, and why it matters to marketing outcomes.
 ## Pointers
 - **Skills:** relevant skills in this repo
 - **Dashboards:** links to live reporting
-- **Boards:** monday boards or groups
+- **Tracker:** monday boards, Notion databases, ClickUp lists, or planning groups/views
 - **Channels:** Slack channels for questions or alerts
 - **Docs/assets:** source-of-truth folders or docs
 ```

@@ -4,7 +4,7 @@
 
 ## What This Is
 
-Marketing work moves across a lot of surfaces: campaign boards, CRM workflows, landing pages, ad accounts, analytics dashboards, Slack threads, launch calendars, and partner teams. Without a shared context layer, every AI conversation starts from scratch.
+Marketing work moves across a lot of surfaces: campaign boards, Notion databases, ClickUp lists, CRM workflows, landing pages, ad accounts, analytics dashboards, Slack threads, launch calendars, and partner teams. Without a shared context layer, every AI conversation starts from scratch.
 
 This starter gives your team a **Marketing Brain**: a version-controlled knowledge base and skill set that Claude can load progressively as it helps plan, triage, execute, measure, and learn from marketing work.
 
@@ -23,7 +23,7 @@ Claude loads only the context needed for the current request. Campaign learnings
 
 1. **Fork or copy this repo** into a repository your marketing team owns.
 2. **Open Claude Code in the repo** and say: **"set up my marketing brain"**.
-3. Answer the setup questions for your team, Slack channel, monday boards, owned marketing systems, and partner teams.
+3. Answer the setup questions for your team, Slack channel, work tracker, owned marketing systems, and partner teams. The starter is wired for monday.com by default; Notion and ClickUp work as alternatives once you adapt the tracker references and skills.
 4. Say **"good morning"** for your first daily marketing brief, or **"run the marketing OS"** to triage a broader request.
 
 ## What's Inside
@@ -33,7 +33,7 @@ Claude loads only the context needed for the current request. Campaign learnings
 | `setup` | "set up my marketing brain" | One-time onboarding wizard that turns placeholders into your real marketing operating context |
 | `marketing-os` | "run the marketing OS" | Routes broad marketing requests across campaign, content, CRM, web, paid, lifecycle, and measurement work |
 | `good-morning` | "good morning", "morning brief" | Daily brief with active marketing work, open blockers, Slack highlights, and recommended actions |
-| `pm-story` | "create a task", "write this up" | Turns a request into a campaign-ready monday brief with Why, Audience, Message, Channel, and Done When |
+| `pm-story` | "create a task", "write this up" | Turns a request into a campaign-ready tracker brief with Why, Audience, Message, Channel, and Done When |
 | `retro` | "let's retro" | Captures campaign and workflow learnings so the next launch starts ahead |
 | `health-check` | "health check", "stale docs" | Finds stale system docs, missing references, and routing gaps |
 | `curious-intern` | "interview me", "fill gaps" | Interviews the team to extract marketing tribal knowledge into durable docs |
@@ -42,7 +42,7 @@ Claude loads only the context needed for the current request. Campaign learnings
 
 Plus:
 
-- **`references/`** - team roster, Slack channels, monday boards, partner teams, and stable IDs
+- **`references/`** - team roster, Slack channels, tracker boards/databases/lists, partner teams, and stable IDs
 - **`systems/`** - templates and examples for CRM, lifecycle, website, paid, content, events, analytics, and partner-owned dependencies
 - **Marketing Brain lint** (`.github/workflows/team-context-lint.yml`) - keeps skills well-formed and placeholder cleanup visible
 - **Pre-commit secret scanning** (`.githooks/pre-commit`) - helps keep tokens and credentials out of the repo
@@ -67,7 +67,7 @@ The starter is intentionally small. The intended path:
 ## Requirements
 
 - [Claude Code](https://claude.com/claude-code) (CLI, desktop, or web)
-- monday.com for work tracking
+- Work tracking in monday.com by default, or Notion/ClickUp if you adapt the tracker references and skills
 - Slack for team and partner communication
 - Optional integrations as your team needs them: CRM, analytics, ad platforms, CMS, GitHub, Google Drive, or other marketing systems
 

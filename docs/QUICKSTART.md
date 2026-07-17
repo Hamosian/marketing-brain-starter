@@ -5,7 +5,7 @@
 Before you start, make sure you have:
 
 - [ ] **Claude Code** installed and working
-- [ ] A **monday.com workspace** with a marketing work board or campaign board
+- [ ] A **work tracker**: monday.com workspace, Notion database, or ClickUp space/list for marketing work and campaign planning
 - [ ] A **Slack channel** for your marketing team
 - [ ] At least **one marketing system** worth documenting: CRM, lifecycle, CMS, website, paid acquisition, content calendar, events, reporting, or campaign operations
 - [ ] A **team champion** who will use the brain publicly for the first two weeks
@@ -27,7 +27,7 @@ This copies the starter files into your repo without preserving the starter's gi
 
 ### 3. Open Claude Code and say: "set up my marketing brain"
 
-The `/setup` skill will ask about your marketing team, primary Slack channel, monday boards, owned marketing systems, and partner teams. It fills placeholders across the repo and creates initial system doc stubs.
+The `/setup` skill will ask about your marketing team, primary Slack channel, work tracker, owned marketing systems, and partner teams. The starter ships with monday.com wiring by default; if your team uses Notion or ClickUp, document equivalent database/list IDs and adapt tracker-specific skills as needed.
 
 After setup, try:
 
@@ -61,9 +61,9 @@ Let Claude interview you. It should capture what the system does, who owns it, w
 
 ### Try the morning brief (5 min)
 
-Say "good morning." Claude will read the configured monday board and Slack channel, then summarize active work, open blockers, Slack highlights, and suggested next actions.
+Say "good morning." Claude will read the configured work tracker and Slack channel, then summarize active work, open blockers, Slack highlights, and suggested next actions.
 
-If the brief feels noisy, tighten `references/monday_boards.md`: document which groups count as active, which statuses are parked, and which columns matter.
+If the brief feels noisy, tighten `references/monday_boards.md`: document which monday groups, Notion database views, or ClickUp lists count as active, which statuses are parked, and which fields matter.
 
 ## First Week
 
@@ -127,7 +127,7 @@ End new workflows with `/retro` so learnings become reusable.
 
 Complete:
 
-- monday board column keys (`references/monday_boards.md`)
+- Work tracker field names and status values (`references/monday_boards.md` for monday, or equivalent Notion/ClickUp reference notes)
 - Partner team contacts (`references/other_teams.md`)
 - Slack channels and user groups (`references/slack.md`)
 - Team roster and focus areas (`references/team.md`)
@@ -182,7 +182,7 @@ Does it cross several marketing systems?
 |---------|--------------|------------|
 | Writing a huge marketing wiki upfront | It delays value and goes stale | Start with live workflows, then capture learnings |
 | Copying live metrics into docs | Numbers go stale immediately | Link to dashboards and explain how to read them |
-| Leaving board columns undocumented | Skills cannot set reliable metadata | Fill exact column keys and labels in `references/monday_boards.md` |
+| Leaving tracker fields undocumented | Skills cannot set reliable metadata | Fill exact field keys, labels, and statuses in `references/monday_boards.md` or the equivalent Notion/ClickUp reference |
 | Skipping `/retro` after launches | Campaign learning disappears | Make retro part of the launch closeout |
 | One person maintaining the brain | Creates bottlenecks | Rotate a "marketing brain gardener" weekly |
 | Overloading `CLAUDE.md` | Slows every task | Move detail into system docs and skills |

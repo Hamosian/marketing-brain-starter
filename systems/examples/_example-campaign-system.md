@@ -20,8 +20,8 @@ Campaign Operations coordinates the work that turns a marketing idea into a laun
 
 | Source | What it contains | Owner |
 |--------|------------------|-------|
-| monday Campaign Calendar | Launch dates, owners, status, campaign rows | Marketing Ops |
-| monday Marketing Tasks | Execution tasks and blockers | Channel owners |
+| Work tracker Campaign Calendar | Launch dates, owners, status, campaign rows | Marketing Ops |
+| Work tracker Marketing Tasks | Execution tasks and blockers | Channel owners |
 | Google Drive Campaign Folder | Briefs, assets, copy docs, enablement materials | Campaign owner |
 | Slack `#campaign-launches` | Day-of coordination and open decisions | Marketing Ops |
 

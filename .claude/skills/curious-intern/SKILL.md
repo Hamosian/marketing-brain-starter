@@ -112,7 +112,7 @@ Interview rules:
 | Approval rule or launch handoff | `CLAUDE.md` or system doc | Global directives / Operating Model |
 | Partner contact or intake path | `references/other_teams.md` | Partner row |
 | Slack channel purpose | `references/slack.md` | Channel table |
-| monday board schema | `references/monday_boards.md` | Board or column section |
+| Tracker field schema | `references/monday_boards.md` | Board/database/list or field section |
 | Workflow improvement | `.claude/skills/<name>/SKILL.md` | Relevant step |
 | New system | `systems/owned/<new>.md` or `systems/reference/<new>.md` | Create from template |
 | Personal preference | Memory | Only if it applies to one user |

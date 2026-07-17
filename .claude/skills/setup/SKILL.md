@@ -23,9 +23,9 @@ If placeholders remain, continue.
 
 Say something like:
 
-> Let's set up your Marketing Brain. I'll ask about your team, channels, monday boards, core marketing systems, and partner handoffs, then fill the repo automatically. It usually takes 5-10 minutes.
+> Let's set up your Marketing Brain. I'll ask about your team, channels, work tracker, core marketing systems, and partner handoffs, then fill the repo automatically. It usually takes 5-10 minutes.
 >
-> We will need a few stable IDs from Slack and monday. I will tell you where to find them as we go.
+> We will need a few stable IDs from Slack and your work tracker. The starter defaults to monday.com, but you can use Notion or ClickUp if you document equivalent IDs and adapt tracker-specific skills.
 
 ## Step 2: Team Identity
 
@@ -35,7 +35,7 @@ Ask these together:
 2. **Team slug** - suggest one from the name, e.g. `growth-marketing`
 3. **Marketing function** - demand gen, lifecycle, product marketing, content, brand, web, partner marketing, marketing ops, integrated marketing, or mixed
 4. **Group name** - e.g. "Marketing", "GTM", "Revenue"
-5. **Marketing stack** - main tools and what they are used for, e.g. "HubSpot (CRM), Webflow (CMS), GA4/Looker (reporting), monday (work tracking)"
+5. **Marketing stack** - main tools and what they are used for, e.g. "HubSpot (CRM), Webflow (CMS), GA4/Looker (reporting), monday/Notion/ClickUp (work tracking)"
 
 Store the marketing function in `{{TEAM_TYPE}}`.
 
@@ -74,13 +74,13 @@ Optional but useful:
 
 Ask these together:
 
-1. **Primary marketing tasks board ID** - number in the monday board URL after `/boards/`
-2. **monday workspace subdomain** - if boards live at `https://acme.monday.com`, use `acme`
+1. **Primary marketing work tracker ID** - monday board ID, Notion database ID, or ClickUp list ID
+2. **Tracker workspace** - monday subdomain, Notion workspace, or ClickUp space/folder
 3. **How work is organized** - planning cycles, groups, campaign calendar, or status/date/owner only
 4. **Campaign calendar board ID** if the team uses one
 5. **Content calendar / website / paid experiment board IDs** if they exist
 
-Explain that exact column keys can be filled later in `references/monday_boards.md`.
+Explain that exact column/field keys can be filled later in `references/monday_boards.md` or the adapted Notion/ClickUp tracker reference.
 
 ## Step 5: Marketing Systems
 
@@ -128,9 +128,9 @@ Use the interview answers to replace:
 | `{{TECH_STACK}}` | Marketing stack |
 | `{{TEAM_SLACK_CHANNEL}}` | Primary channel name |
 | `{{TEAM_SLACK_CHANNEL_ID}}` | Primary channel ID |
-| `{{MONDAY_TASKS_BOARD_ID}}` | Primary marketing tasks board ID |
+| `{{MONDAY_TASKS_BOARD_ID}}` | Primary marketing tracker ID |
 | `{{MONDAY_SPRINTS_BOARD_ID}}` | Planning cycle board ID, or `not used` |
-| `{{MONDAY_WORKSPACE}}` | monday workspace subdomain |
+| `{{MONDAY_WORKSPACE}}` | monday workspace subdomain, Notion workspace, or ClickUp space |
 | `{{TEAM_LEAD_NAME}}` | First team member name |
 | `{{TEAM_LEAD_GITHUB}}` | GitHub login or `not used` |
 | `{{TEAM_LEAD_SLACK_ID}}` | First team member Slack ID |
@@ -187,9 +187,9 @@ Add the first team member and any additional teammates with focus areas.
 
 Add channels mentioned during setup with purpose and notes.
 
-### monday reference
+### Work tracker reference
 
-Add any campaign, content, website, paid, or analytics boards the user named.
+Add any campaign, content, website, paid, or analytics monday boards, Notion databases, or ClickUp lists the user named.
 
 ## Step 9: Create System Doc Stubs
 
@@ -293,7 +293,7 @@ Your Marketing Brain is ready.
 
 - Try "good morning" for the first daily brief.
 - Say "teach me about [most important system]" to fill the first system doc.
-- Fill exact monday column keys in references/monday_boards.md.
+- Fill exact tracker field keys in references/monday_boards.md, whether the team uses monday, Notion, or ClickUp.
 - Add partner teams in references/other_teams.md.
 - Run /curious-intern when you have 15 minutes.
 - Run /retro after the next campaign or workflow that teaches something useful.
