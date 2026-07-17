@@ -115,6 +115,12 @@ Also ask for partner-owned dependencies:
 - Product roadmap
 - Web team
 
+Optional repo context add-on:
+
+- Ask whether the team wants to add [Graphify](https://github.com/Graphify-Labs/graphify) later for a visual, queryable knowledge graph of the Marketing Brain. Explain that the CLI is installed with `uv tool install graphifyy`.
+- For Codex, use `graphify install --project --platform codex`, then run `$graphify .`.
+- For Claude Code, use `graphify install --project`, then run `/graphify .`.
+
 ## Step 6: Build Replacement Map
 
 Use the interview answers to replace:
@@ -294,6 +300,7 @@ Your Marketing Brain is ready.
 - Try "good morning" for the first daily brief.
 - Say "teach me about [most important system]" to fill the first system doc.
 - Fill exact tracker field keys in references/monday_boards.md, whether the team uses monday, Notion, or ClickUp.
+- Optionally add Graphify if the team wants a queryable knowledge graph of the repo: `uv tool install graphifyy`, then `graphify install --project --platform codex` for Codex or `graphify install --project` for Claude Code.
 - Add partner teams in references/other_teams.md.
 - Run /knowledge-interview when you have 15 minutes.
 - Run /retro after the next campaign or workflow that teaches something useful.

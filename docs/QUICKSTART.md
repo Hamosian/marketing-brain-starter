@@ -35,6 +35,28 @@ After setup, try:
 - "run the marketing OS" for campaign triage or planning
 - "teach me about our CRM" to document your first system
 
+## Optional: Add Graphify
+
+If your team wants a visual, queryable map of the repo, [Graphify](https://github.com/Graphify-Labs/graphify) can scan the Marketing Brain and generate a knowledge graph.
+
+Install the CLI once:
+
+```bash
+uv tool install graphifyy
+```
+
+Then install the project skill for the assistant your team uses:
+
+```bash
+# Codex
+graphify install --project --platform codex
+
+# Claude Code
+graphify install --project
+```
+
+Then run `$graphify .` in Codex or `/graphify .` in Claude Code. Graphify output is ignored at `graphify-out/` and `graph.json` so generated artifacts stay uncommitted.
+
 ## First 30 Minutes
 
 ### Confirm the skills loaded (5 min)

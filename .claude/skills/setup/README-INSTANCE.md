@@ -63,6 +63,30 @@ Claude loads only the context needed for the current task. Details in `PHILOSOPH
 - **Campaign learning:** say "let's retro" after launches, tests, reporting cycles, or messy workflows
 - **Health check:** say "health check" monthly or after major team/system changes
 
+## Optional Add-Ons
+
+### Graphify
+
+[Graphify](https://github.com/Graphify-Labs/graphify) can generate a visual, queryable knowledge graph from this repo when the team wants another way to explore systems, skills, references, and docs.
+
+Install the CLI once:
+
+```bash
+uv tool install graphifyy
+```
+
+Then install the project skill for the assistant your team uses:
+
+```bash
+# Codex
+graphify install --project --platform codex
+
+# Claude Code
+graphify install --project
+```
+
+Then run `$graphify .` in Codex or `/graphify .` in Claude Code. Generated files go into `graphify-out/` and `graph.json`, which should stay out of git and Claude context.
+
 ## Adoption Guide
 
 See `docs/QUICKSTART.md` for the full playbook: first 30 minutes, first week, first month, decision trees, migration guidance, and common pitfalls.

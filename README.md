@@ -69,7 +69,29 @@ The starter is intentionally small. The intended path:
 - [Claude Code](https://claude.com/claude-code) (CLI, desktop, or web)
 - Work tracking in monday.com by default, or Notion/ClickUp if you adapt the tracker references and skills
 - Slack for team and partner communication
-- Optional integrations as your team needs them: CRM, analytics, ad platforms, CMS, GitHub, Google Drive, or other marketing systems
+- Optional integrations as your team needs them: CRM, analytics, ad platforms, CMS, GitHub, Google Drive, Graphify, or other marketing systems
+
+## Optional Add-On: Graphify
+
+[Graphify](https://github.com/Graphify-Labs/graphify) can turn this repo, docs, schemas, and media into a queryable knowledge graph when your team wants a visual map of how the Marketing Brain fits together.
+
+Install the CLI once:
+
+```bash
+uv tool install graphifyy
+```
+
+Then install the project skill for the assistant your team uses:
+
+```bash
+# Codex
+graphify install --project --platform codex
+
+# Claude Code
+graphify install --project
+```
+
+After installing it for the project, run `$graphify .` in Codex or `/graphify .` in Claude Code. Generated files go into `graphify-out/` and `graph.json`, which are ignored by git and Claude context.
 
 ## License
 

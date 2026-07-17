@@ -1,5 +1,7 @@
 .planning/
 .analysis/
+graphify-out/
+graph.json
 settings.local.json
 .env
 .claude/worktrees/
