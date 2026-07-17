@@ -232,6 +232,10 @@ Open the visualizer, start a Claude Code or Codex session in this repo, and use 
 
 [Graphify](https://github.com/Graphify-Labs/graphify) can turn this repo, docs, schemas, and media into a queryable knowledge graph when your team wants a visual map of how the Marketing Brain fits together.
 
+<video src="assets/graphify-knowledge-graph-demo.mov" controls muted playsinline title="Graphify knowledge graph demo"></video>
+
+[Watch the Graphify demo](assets/graphify-knowledge-graph-demo.mov)
+
 Install the CLI once:
 
 ```bash
