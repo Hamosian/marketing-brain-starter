@@ -4,6 +4,8 @@
 
 ## What This Is
 
+![Marketing Brain system map](assets/marketing-brain-system-map-dark.png)
+
 Marketing work moves across a lot of surfaces: campaign boards, Notion databases, ClickUp lists, CRM workflows, landing pages, ad accounts, analytics dashboards, Slack threads, launch calendars, and partner teams. Without a shared context layer, every AI conversation starts from scratch.
 
 This starter gives your team a **Marketing Brain**: a version-controlled knowledge base and skill set that Claude can load progressively as it helps plan, triage, execute, measure, and learn from marketing work.
