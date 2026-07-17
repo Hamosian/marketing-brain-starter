@@ -1,218 +1,262 @@
-# Quickstart Guide
+# Marketing Brain Quickstart
 
 ## Prerequisites
 
 Before you start, make sure you have:
 
 - [ ] **Claude Code** installed and working
-- [ ] A **Monday.com workspace** with task, planning, and website boards
-- [ ] A **Slack channel** for your team
-- [ ] At least **one system** your team owns (a service, platform, tool, or workflow - see `systems/README.md` for examples by team type)
-- [ ] A **champion** - someone willing to drive adoption for the first 2 weeks (usually the team lead)
+- [ ] A **monday.com workspace** with a marketing work board or campaign board
+- [ ] A **Slack channel** for your marketing team
+- [ ] At least **one marketing system** worth documenting: CRM, lifecycle, CMS, website, paid acquisition, content calendar, events, reporting, or campaign operations
+- [ ] A **team champion** who will use the brain publicly for the first two weeks
 
 ## Quickstart (3 Steps)
 
 ### 1. Create a new repo on GitHub
 
-Or use an existing empty one. We recommend naming it `{team-slug}-context` (e.g. `growth-sales-context`, `bi-analytics-context`).
+Use a repo your marketing team owns. Good names: `{team-slug}-marketing-brain`, `{team-slug}-campaign-brain`, or `{team-slug}-gtm-brain`.
 
-### 2. Pull in the template
+### 2. Pull in the starter
 
 ```bash
 cd your-repo
-npx degit michaelimas1/team-context-template/template . && git add -A && git commit -m "init: team context from template"
+npx degit Hamosian/marketing-brain-starter . && git add -A && git commit -m "init: marketing brain starter"
 ```
 
-This copies all the template files into your repo without git history.
+This copies the starter files into your repo without preserving the starter's git history.
 
-### 3. Open Claude Code and say: "set up my team context"
+### 3. Open Claude Code and say: "set up my marketing brain"
 
-The `/setup` skill will ask what kind of team you are, then walk you through filling in all the placeholders interactively. It adapts to your team type - engineering teams get GitHub and PagerDuty questions, other teams get a streamlined flow focused on Monday boards and Slack.
+The `/setup` skill will ask about your marketing team, primary Slack channel, monday boards, owned marketing systems, and partner teams. It fills placeholders across the repo and creates initial system doc stubs.
 
-That's it. After setup, try saying "run the marketing OS" for your first operating brief, or "good morning" for a daily catch-up.
+After setup, try:
+
+- "good morning" for a daily marketing brief
+- "run the marketing OS" for campaign triage or planning
+- "teach me about our CRM" to document your first system
 
 ## First 30 Minutes
 
-### After setup (5 min)
+### Confirm the skills loaded (5 min)
 
-Say "what skills do you have?" to verify everything loaded. You should see: marketing-os, retro, health-check, team-intro, list-skills, curious-intern, good-morning, and pm-story.
+Say "what skills do you have?" You should see: marketing-os, good-morning, pm-story, retro, health-check, curious-intern, team-intro, and list-skills.
 
-### Write your first system doc (20 min)
+### Document the first marketing system (20 min)
 
-Pick your most critical system. Tell Claude:
+Pick the system that most often slows people down. Good first choices:
+
+- CRM and lifecycle automation
+- Marketing website or CMS
+- Paid acquisition accounts
+- Campaign calendar and launch process
+- Reporting and attribution dashboards
+
+Tell Claude:
 
 > "I want to teach you about [System Name]"
 
-Let Claude interview you. It will ask questions about what the system does, how you work with it, what breaks, and what other systems depend on it. It produces a system doc following the template. Review and commit.
+Let Claude interview you. It should capture what the system does, who owns it, where the live source lives, what usually breaks, how marketers use it, and how success is measured.
 
-**Do not try to write system docs from scratch.** The interview approach (from PHILOSOPHY.md: "Let the AI Interview You") produces better results because it's structured for AI consumption, not human reading.
+**Do not write the system doc from scratch.** The interview approach produces better AI-ready context because it pulls out routing rules, platform caveats, and practical handoff details.
 
 ### Try the morning brief (5 min)
 
-Say "good morning." Claude will fetch active monday work and Slack highlights. If your team doesn't run a sprint board, the brief filters by owner, status, priority, and due date instead. If board IDs or channel IDs are wrong, fix them in CLAUDE.md and references/.
+Say "good morning." Claude will read the configured monday board and Slack channel, then summarize active work, open blockers, Slack highlights, and suggested next actions.
+
+If the brief feels noisy, tighten `references/monday_boards.md`: document which groups count as active, which statuses are parked, and which columns matter.
 
 ## First Week
 
-### Day 2-3: Add your systems
+### Day 2-3: Add your core systems
 
-Write docs for 2-3 more owned systems. Use the interview approach every time. Each system doc should take 15-20 minutes.
+Document 2-3 more owned systems using the interview approach. Each should take 15-20 minutes.
 
-Check the example docs in `systems/examples/` for what a well-written doc looks like - there are examples for engineering (`_example-active-system.md`), BI (`_example-analytics-system.md`), and sales (`_example-sales-system.md`) teams.
+Strong marketing starter set:
+
+- CRM and lifecycle
+- Website and CMS
+- Paid acquisition
+- Campaign calendar
+- Content operations
+- Measurement and reporting
+
+Check `systems/examples/` for marketing-native examples.
 
 ### Day 3-4: Create your first custom skill
 
-Think of a workflow your team does repeatedly. Examples by team type:
+Choose a workflow the team repeats often:
 
-**Engineering:** Debugging a service's failures, running a deployment checklist, investigating an alert
-**BI / Analytics:** Refreshing a stale dashboard, investigating data quality issues, onboarding a new data source
-**Sales:** Reviewing pipeline health, preparing for a QBR, auditing stale opportunities
-**Marketing:** Launching a campaign, reviewing content performance, auditing automation rules
-**Any team:** Reviewing incoming requests on a Monday board, preparing a weekly digest, onboarding a new team member
+- Launching a campaign
+- Writing a campaign brief
+- Reviewing content performance
+- Auditing CRM automation
+- Preparing a weekly marketing readout
+- QAing a landing page before launch
+- Turning Slack feedback into board tasks
 
-Tell Claude: "I want to create a skill for [workflow]." Use the `/skill-creator` plugin for a guided walkthrough.
+Tell Claude: "I want to create a skill for [workflow]." Use the `/skill-creator` plugin if available.
 
 ### Day 5: Team demo
 
-Show your team the morning brief and one custom skill. Let them try it. This is the **adoption ceremony** - seeing it work is what converts skeptics.
+Show the team three things:
+
+1. A real "good morning" brief
+2. A campaign/task brief created with `/pm-story`
+3. A system doc Claude uses during a workflow
+
+This is the adoption moment. Marketers believe the brain when it helps with work they already recognize.
 
 ## First Month
 
-### Week 2: Expand skills
+### Week 2: Add specialist workflows
 
-Build 2-3 more skills based on real workflows. Broad marketing workflows should start in `/marketing-os`, then delegate to specialist sub-agents. Every time you guide Claude through something new, end with `/retro` to capture the learning.
+Build 2-3 skills around live marketing work. Broad requests should start in `/marketing-os`, then delegate to specialist skills as they appear.
 
-### Week 3: Reference data completeness
+Good candidates:
 
-Fill in:
+- Campaign launch checklist
+- Weekly performance readout
+- Lifecycle nurture QA
+- Paid experiment intake
+- Website CRO audit
+- Content refresh workflow
 
-- All Monday board column keys (`references/monday_boards.md`)
-- Cross-team contacts (`references/other_teams.md`)
-- Additional Slack channels (`references/slack.md`)
-- Any remaining team members (`references/team.md`)
+End new workflows with `/retro` so learnings become reusable.
 
-### Week 4: Health check and retrospective
+### Week 3: Fill reference data
 
-Run `/health-check` to see what's stale or incomplete. Run `/curious-intern` to extract tribal knowledge you haven't documented yet. Review what's working and what's not.
+Complete:
+
+- monday board column keys (`references/monday_boards.md`)
+- Partner team contacts (`references/other_teams.md`)
+- Slack channels and user groups (`references/slack.md`)
+- Team roster and focus areas (`references/team.md`)
+
+### Week 4: Health check and retro
+
+Run `/health-check` to find stale docs, missing owners, and routing gaps. Run `/curious-intern` to extract the knowledge that still lives in people's heads.
 
 ## Decision Trees
 
 ### "Where does this knowledge go?"
 
-```
-Is it about how a SYSTEM works (architecture, repos, failure modes)?
+```text
+Is it about how a MARKETING SYSTEM works?
   -> systems/owned/<system>.md or systems/reference/<system>.md
 
-Is it a REPEATABLE WORKFLOW (step-by-step process)?
-  -> .claude/skills/<name>/SKILL.md
+Is it a REPEATABLE WORKFLOW?
+  -> .claude/skills/<workflow>/SKILL.md
 
-Is it STABLE LOOKUP DATA (IDs, contacts, channel names)?
+Is it STABLE LOOKUP DATA?
   -> references/<topic>.md
 
-Is it about HOW THIS REPO WORKS or TEAM CONVENTIONS?
+Is it a TEAM ROUTING RULE or MARKETING OPERATING CONVENTION?
   -> CLAUDE.md
 
-Is it CODE-LEVEL CONVENTION tied to a specific codebase?
-  -> That code repo's CLAUDE.md (not this repo)
+Is it LIVE PERFORMANCE DATA or CURRENT CAMPAIGN STATUS?
+  -> Keep it in the source platform; add only a pointer here
 
-Is it a PERSONAL PREFERENCE?
-  -> Memory (the only thing that goes to memory)
+Is it one person's style preference?
+  -> Memory
 ```
 
 ### "Should this be a skill or a system doc section?"
 
-```
-Can Claude execute it end-to-end with MCP tools and bash?
+```text
+Can Claude run or guide the workflow step by step?
   -> Skill
 
-Is it reference information Claude needs to UNDERSTAND a system?
+Does Claude need it to understand a platform, channel, or dependency?
   -> System doc
 
-Does it involve DECISIONS that need human judgment at each step?
-  -> System doc (with a "When It Breaks" or "Runbook" section)
+Does it involve judgment at every step?
+  -> System doc plus a guided skill if the team repeats it
 
-Is it a HYBRID (some automated steps, some human decisions)?
-  -> Skill that guides the human through decision points
+Does it cross several marketing systems?
+  -> Start with marketing-os, then create specialist skills over time
 ```
 
 ## Common Pitfalls
 
 | Pitfall | Why it hurts | Prevention |
-|---------|-------------|------------|
-| Writing massive docs upfront | No immediate ROI, goes stale fast | Build through the flywheel - do real work, then `/retro` |
-| Copying code into the repo | Drifts from source, creates false confidence | Use pointers: repo paths, URLs, IDs |
-| Skipping `/retro` after novel work | Knowledge stays in one head | Make it a team habit - suggest it in standup |
-| Too many placeholders/TODOs | Claude hallucinates or gives wrong answers | Fill stubs within a week or delete them |
-| One person maintaining everything | Bus factor, burnout | Rotate "team context gardener" role weekly |
-| Overloading CLAUDE.md | Wastes context window on every task | Put details in system docs and skills |
-| Not running `/health-check` | Staleness accumulates silently | Run monthly, add to sprint retro agenda |
-| Saving system knowledge to memory | Only one person benefits, can't be reviewed | Always commit to the repo via PR |
+|---------|--------------|------------|
+| Writing a huge marketing wiki upfront | It delays value and goes stale | Start with live workflows, then capture learnings |
+| Copying live metrics into docs | Numbers go stale immediately | Link to dashboards and explain how to read them |
+| Leaving board columns undocumented | Skills cannot set reliable metadata | Fill exact column keys and labels in `references/monday_boards.md` |
+| Skipping `/retro` after launches | Campaign learning disappears | Make retro part of the launch closeout |
+| One person maintaining the brain | Creates bottlenecks | Rotate a "marketing brain gardener" weekly |
+| Overloading `CLAUDE.md` | Slows every task | Move detail into system docs and skills |
+| Keeping stale examples | Claude routes work through fake context | Delete examples once real system docs exist |
 
-## The Adoption Ceremony
+## The Adoption Demo
 
-When introducing the team context to your team:
+When introducing the Marketing Brain:
 
-1. **Don't explain the philosophy first.** Show a demo instead.
-2. **Live demo:** Open Claude Code, say "run the marketing OS", show the operating brief.
-3. **Second demo:** Pick a real task from the monday board, run `/pm-story`.
-4. **Third demo:** Show a system doc and how Claude uses it during a workflow.
-5. **Then explain:** Share PHILOSOPHY.md. The flywheel concept lands better after seeing it work.
-6. **Assignment:** Each team member writes one system doc or skill in the first week.
+1. **Show the work first.** Do not start with repo philosophy.
+2. **Run a brief:** say "good morning" and show the operating readout.
+3. **Create a task:** pick a real request and run `/pm-story`.
+4. **Use context:** ask about a system and show Claude reading the relevant doc.
+5. **Then explain the loop:** every useful learning gets captured back into the repo.
+6. **Assign ownership:** each marketer documents one system, channel, or repeated workflow in the first week.
 
 ## Migration Guide: Existing Documentation
 
-If your team has existing docs in Confluence, Notion, Google Docs, or wikis:
+If your team already has docs in Notion, Google Docs, Confluence, Drive, or wikis:
 
 ### What to migrate
 
-- System architecture overviews -> `systems/owned/<system>.md`
-- Runbooks and playbooks -> `.claude/skills/<workflow>/SKILL.md`
-- Team roster and contact info -> `references/team.md`
-- Board/channel/ID reference sheets -> `references/`
+- Platform maps -> `systems/owned/<system>.md`
+- Launch checklists and playbooks -> `.claude/skills/<workflow>/SKILL.md`
+- Team roster and focus areas -> `references/team.md`
+- Board, channel, view, and report IDs -> `references/`
+- Partner handoffs -> `references/other_teams.md`
 
-### What NOT to migrate
+### What not to migrate
 
-- Meeting notes (ephemeral, not useful for AI)
-- Design docs (belong in the code repo)
-- Onboarding guides written for humans (different audience than AI)
-- Anything that duplicates what the code already says
+- Meeting notes
+- Screenshots of dashboards or CRM records
+- Old campaign readouts with no reusable learning
+- Full brand or product docs owned elsewhere
+- Anything that duplicates a live source of truth
 
 ### How to migrate
 
-Don't copy-paste from Confluence. Instead:
+Do not copy-paste whole docs. Instead:
 
-1. Open the old doc and your new system doc template side by side
-2. Tell Claude: "I'm migrating our [System] documentation. Here's what we have: [paste key points]"
-3. Let Claude interview you to fill gaps
-4. The result will be structured for AI consumption, not a copy of human docs
+1. Open the old doc and the relevant template.
+2. Tell Claude: "I'm migrating our [workflow/system] docs. Here are the useful points."
+3. Let Claude interview you to fill the missing operational context.
+4. Review the result for accuracy, then commit it.
 
 ## Creating Your First Custom Skill
 
 ### When to create a skill
 
-If you've guided Claude through the same workflow more than twice, it's time to make a skill. Signs you need one:
+If you have guided Claude through the same marketing workflow more than twice, create a skill. Signs:
 
-- You keep pasting the same instructions
-- You keep reminding Claude about the same board IDs or API endpoints
-- There's a checklist you follow every time
+- You keep pasting the same launch checklist.
+- You keep explaining the same board IDs, channel rules, or approval path.
+- The workflow has a predictable sequence and common failure cases.
 
 ### How to create one
 
-1. Tell Claude: "I want to create a skill for [workflow]" or use `/skill-creator`
-2. Claude will help you structure the SKILL.md with:
-   - YAML frontmatter (name, description with trigger phrases)
-   - Step-by-step instructions
-   - MCP tool calls with the right parameters
-   - Error handling guidance
-3. Save to `.claude/skills/<name>/SKILL.md`
-4. Add it to the skill table in README.md
-5. Test it by triggering it with one of your trigger phrases
+1. Tell Claude: "I want to create a skill for [workflow]."
+2. Capture:
+   - YAML frontmatter with a clear `name` and trigger-rich `description`
+   - Step-by-step workflow instructions
+   - Source systems and references to load
+   - Approval rules for writes
+   - Fallbacks for platform errors
+3. Save it to `.claude/skills/<name>/SKILL.md`.
+4. Add it to the skill table in `README.md` and the registry in `CLAUDE.md` if it is a domain sub-agent.
+5. Test it with 3-5 natural trigger phrases.
 
 ### Skill format
 
 ```markdown
 ---
 name: skill-name
-description: When to trigger and what it does. Include trigger phrases.
+description: Use this skill when the user wants to run [marketing workflow]. Triggered by "natural phrase", "another phrase".
 ---
 
 # Skill Title
@@ -222,27 +266,27 @@ Step-by-step instructions for Claude to follow.
 
 ### Tips
 
-- Keep SKILL.md under 500 lines. Use `knowledge/` files for heavy reference content.
-- Write in imperative voice: "Read...", "Run...", "Ask the user..."
-- Explain the *why* behind instructions, not just the *what*
-- Include error handling: "If X fails, try Y"
-- Test with 3-5 trigger phrases to verify routing accuracy
+- Keep `SKILL.md` under 500 lines. Put heavy reference material in `knowledge/`.
+- Write in imperative voice: "Read...", "Check...", "Ask...", "Draft...".
+- Explain why a step matters when the marketing judgment is not obvious.
+- Include approval rules before sending messages, changing CRM data, or updating live platforms.
+- Include fallback guidance for common platform errors.
 
 ## Maintenance
 
-### The RALPH Loop
+### The Review Loop
 
-Review your team context health quarterly:
+Review the Marketing Brain quarterly:
 
-- **R - Review:** Does each skill still match reality?
-- **A - Audit:** Test trigger accuracy. Do the right skills fire?
-- **L - Learn:** After bugs or incidents, update the relevant docs.
-- **P - Prune:** Remove dead skills. A stale skill is worse than no skill.
-- **H - Handoff:** If someone leaves, transfer their knowledge into the repo.
+- **Review:** Does each skill still match the way the team works?
+- **Audit:** Do trigger phrases route to the right skill?
+- **Learn:** Did recent launches teach anything not yet captured?
+- **Prune:** Remove dead skills, old examples, and obsolete partner paths.
+- **Handoff:** Move knowledge from departing owners into the repo.
 
 ### Staying Current
 
-- Run `/health-check` monthly
-- Run `/curious-intern` after major system changes
-- Update `last-reviewed` dates when you verify a system doc
-- Keep example system docs in `systems/examples/`, outside owned/reference routing paths
+- Run `/health-check` monthly.
+- Run `/curious-intern` after major campaign, platform, or org changes.
+- Update `last-reviewed` dates when you verify a system doc.
+- Delete example system docs once real docs exist.

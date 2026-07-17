@@ -1,83 +1,94 @@
-# Team Context Philosophy
+# Marketing Brain Philosophy
 
-Guidelines for contributing to and maintaining this repo. For the full pitch and background, see the [project README](https://github.com/michaelimas1/team-context-template).
+Guidelines for building and maintaining a marketing operating brain that Claude can use without turning every request into a fresh discovery call.
 
 ## Principles
 
-### 1. Pointers, Not Copies
+### 1. Link to Sources, Do Not Copy Them
 
-Never copy system code, live data, or API responses into this repo. Only provide pointers - repo paths, dashboard URLs, API endpoints, Slack channel IDs. This way:
-- The AI always fetches the real-time source of truth
-- The repo doesn't go stale when code changes
-- There's no drift between "what the docs say" and "what the code does"
+Never copy live campaign data, customer lists, dashboard screenshots, API responses, ad account exports, or CRM records into this repo. Use pointers: board URLs, dashboard links, CRM views, CMS paths, asset folders, Slack channel IDs, and owner names.
 
-### 2. Let the AI Interview You
+This keeps the brain useful without making it stale:
 
-Don't sit down and try to write a skill document from scratch. That's the old way. Instead:
-- Tell Claude you want to teach it a new process
-- Let it ask you questions to extract the information
-- Review what it produces and correct it
-- The result is better than what you'd write manually because it's structured for AI consumption
+- Claude can fetch or ask for the current source of truth.
+- The repo does not drift when a campaign, metric, or asset changes.
+- Sensitive or fast-changing marketing data stays in the platform that owns it.
 
-### 3. Force the AI to Update Itself
+### 2. Let the AI Interview the Marketer
 
-Make it a team habit: at the end of every successful novel workflow, tell Claude to capture what it learned. It opens a PR. This is non-negotiable - if the learning stays in one person's head (or worse, in memory), the team doesn't benefit.
+Do not try to write perfect marketing documentation from a blank page. Instead:
 
-### 4. Treat the AI as a UI
+- Tell Claude which campaign, channel, platform, or workflow you want it to learn.
+- Let it ask you targeted questions.
+- Review the result and correct the nuance.
+- Commit the useful context so the next teammate gets the benefit.
 
-Every time you find yourself clicking through a web interface - monday.com boards, Salesforce, dashboards, admin panels, Slack - ask: "Can I turn this into a skill?" If the answer is yes, do it. The skill becomes a faster, more consistent interface than the GUI.
+The interview method captures the practical layer marketers actually need: what matters, who approves, what usually breaks, and how success is judged.
 
-### 5. Keep It Clean
+### 3. Make Every Campaign Teach the Next One
 
-A messy team context is worse than none - it causes hallucinations and wrong answers with high confidence. Maintenance rules:
+At the end of a launch, messy triage, reporting cycle, or new workflow, run `/retro`. Capture the audience insight, channel gotcha, approval rule, measurement caveat, or handoff step while it is still fresh.
 
-- **RALPH lifecycle:** Review, Audit, Learn, Prune, Handoff (see `docs/QUICKSTART.md` for details)
-- **Schema compliance:** System docs follow templates (see `systems/README.md`). Don't let stubs accumulate.
-- **Run `/health-check` periodically** to find stale docs, unfilled TODOs, and template drift
-- **Kill dead skills** rather than leaving them to pollute routing
+If the learning stays in one person's chat history, the team loses it. If it lands in the repo, the next campaign starts smarter.
+
+### 4. Treat Claude as a Marketing Ops Interface
+
+Every time you click through the same web interface - monday boards, CRM workflows, CMS pages, ad account settings, analytics dashboards, Slack approvals - ask: "Can this become a skill?"
+
+A good skill turns a repeated workflow into a consistent operating path with fewer dropped steps and better handoffs.
+
+### 5. Keep the Brain Clean
+
+A messy Marketing Brain causes confident wrong answers. Maintenance rules:
+
+- **Review:** Re-read high-impact system docs on a regular cadence.
+- **Audit:** Check skill triggers, board IDs, channel IDs, and owner paths.
+- **Learn:** Capture workflow and campaign learnings with `/retro`.
+- **Prune:** Remove dead skills, stale examples, and unused placeholders.
+- **Handoff:** When ownership changes, move the context into the repo before it disappears.
+
+Run `/health-check` periodically to find stale docs, unfilled placeholders, and routing gaps.
 
 ## Anti-Patterns
 
-| Don't | Why | Do Instead |
-|-------|-----|------------|
-| Write massive docs upfront | No immediate ROI, goes stale fast | Build incrementally through the flywheel |
-| Copy code or data into the repo | Drifts from source, creates false confidence | Use pointers - repo paths, URLs, IDs |
-| Save system knowledge to memory | Only one person benefits, can't be reviewed | Commit to the repo via PR |
-| Let skills rot | Stale skills cause wrong actions with high confidence | Run `/health-check`, prune quarterly |
-| Skip the retro | Breaks the flywheel, knowledge stays tribal | Always capture learnings after novel workflows |
-| Overload CLAUDE.md | Wastes context window on every task | Put details in subsystem files |
+| Do not | Why it hurts | Do instead |
+|--------|--------------|------------|
+| Write huge docs before doing real work | No immediate value, gets stale quickly | Build through live workflows and retros |
+| Copy dashboard numbers or CRM exports | Creates stale or sensitive copies | Link to the dashboard, report, list, or board |
+| Save marketing system knowledge to memory | Only one user benefits and nobody can review it | Commit durable knowledge to the repo |
+| Let old skills linger | Stale skills route work incorrectly | Run `/health-check` and prune quarterly |
+| Skip launch retros | Campaign learning stays tribal | Capture what changed, what worked, and what broke |
+| Overload `CLAUDE.md` | Claude reads it every time | Put detail in system docs, references, and skills |
 
 ## How Agents Navigate This Repo Efficiently
 
-With a repo full of system docs, references, and skills, how does the AI avoid loading everything at once and overwhelming its context window?
+The repo works through **progressive disclosure**: give Claude a map first, then let it load the right operating context.
 
-The answer is **progressive disclosure** - give the AI a map, not a library.
-
-```
+```text
 1. CLAUDE.md (always loaded)
-   - Tells Claude what this repo is and how it's structured
-   - Points to where specific knowledge lives
+   - Explains the marketing team, routing, and operating rules
+   - Points to where stable context lives
 
 2. Targeted files (loaded on demand)
-   - "Check the analytics dashboard" -> Claude reads systems/owned/analytics.md
-   - "Create a task" -> skill triggers, loads its SKILL.md
+   - "Check lifecycle nurture performance" -> read the CRM/lifecycle system doc
+   - "Create a task" -> trigger pm-story and read monday board references
 
 3. Deep knowledge (loaded within skills)
-   - SKILL.md says "for this system, read knowledge/system-specific.md"
-   - Only loaded when the specific context is needed
+   - A skill may load campaign checklists, query patterns, or platform-specific notes
+   - Heavy context is loaded only when the workflow needs it
 ```
 
-The result: Claude gets exactly the context it needs for each task, nothing more.
+The result: Claude gets enough context to act well without dragging every campaign, channel, and dashboard into every conversation.
 
 ## What Belongs Where
 
 | Content type | Location | Example |
-|-------------|----------|---------|
-| How the repo works, team identity | `CLAUDE.md` | Team name, Slack channel, board IDs |
-| System architecture, entry points | `systems/owned/*.md` | Service architecture, dashboard structure |
-| Systems we depend on | `systems/reference/*.md` | Shared platforms, upstream dependencies |
-| Stable lookup data | `references/*.md` | Slack channel IDs, monday.com column keys |
-| Repeatable workflows | `.claude/skills/*/SKILL.md` | Sprint review, board processing |
-| Heavy reference within a skill | `.claude/skills/*/knowledge/*.md` | System-specific queries or configs |
-| Code-level conventions | That code's repo `CLAUDE.md` | TypeScript patterns, SQL conventions |
-| User preferences | Memory | "I prefer ASCII diagrams" |
+|--------------|----------|---------|
+| Team identity and routing rules | `CLAUDE.md` | Primary Slack channel, morning brief sources, skill registry |
+| Marketing platforms and workflows | `systems/owned/*.md` | CRM lifecycle, website CMS, paid acquisition, campaign calendar |
+| Partner-owned dependencies | `systems/reference/*.md` | Product analytics, brand library, data warehouse, sales CRM |
+| Stable lookup data | `references/*.md` | Slack channel IDs, monday column keys, partner contacts |
+| Repeatable workflows | `.claude/skills/*/SKILL.md` | Launch brief, campaign retro, content refresh, reporting readout |
+| Heavy reference within a skill | `.claude/skills/*/knowledge/*.md` | Query patterns, checklist details, platform caveats |
+| Code-level conventions | That code repo's `CLAUDE.md` | Frontend patterns, API conventions, deployment rules |
+| One person's preferences | Memory | "Use concise bullets in my Slack drafts" |

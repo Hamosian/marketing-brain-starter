@@ -1,21 +1,25 @@
 # References
 
-Stable lookup data used by skills and agents. These files contain IDs, contacts, and configuration that rarely changes but is frequently needed.
+Stable lookup data used by marketing skills and agents. These files hold IDs, owner paths, channel names, board schemas, and partner contacts that rarely change but are needed constantly.
 
 ## What Belongs Here
 
-- Board IDs, column keys, workspace IDs
-- Slack channel IDs, user group handles
-- Team roster (single source of truth: `team.md`)
-- Cross-team contacts and escalation paths
+- monday board IDs, group IDs, column keys, and exact status labels
+- Slack channel IDs, user groups, announcement channels, and intake channels
+- Marketing team roster and focus areas
+- Partner team contacts, intake paths, and escalation channels
+- Links to source-of-truth folders or views that multiple skills reuse
 
-## What Does NOT Belong Here
+## What Does Not Belong Here
 
-- Feedback or action items (apply feedback directly to the relevant skill/system doc)
-- Process documentation (belongs in skills or system docs)
-- Ephemeral data (current sprint status, in-progress work)
-- Anything that duplicates content from another file (use pointers instead)
+- Live campaign metrics or current performance numbers
+- Feedback or action items that should become tasks or skill updates
+- Process documentation that belongs in a skill
+- Platform behavior that belongs in a system doc
+- Duplicate rosters or copied partner docs
 
-## Single Source of Truth
+## Single Source Of Truth
 
-**Team roster:** `team.md` is the authoritative source. Other files that need member lists should reference it rather than duplicating the table.
+**Team roster:** `team.md` is authoritative. Other files should point to it instead of duplicating people lists.
+
+**Live data:** keep it in the tool that owns it. References should tell Claude where to look and how to interpret the stable schema.

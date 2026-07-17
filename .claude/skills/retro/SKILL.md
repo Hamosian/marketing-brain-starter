@@ -1,75 +1,74 @@
 ---
 name: retro
-description: Use this skill when the user wants to capture learnings from a completed workflow, save knowledge for next time, update a skill or system doc based on what was discovered, or reflect on what went well/poorly. Triggered by "let's retro", "capture what we learned", "save this for next time", "update the skill", "what did we learn", "document this for next time", "don't forget this", "we should remember this". Also suggest this skill proactively after completing a novel or complex workflow.
+description: Use this skill when the user wants to capture learnings from a completed campaign, launch, channel test, reporting cycle, workflow, platform change, or triage session. Triggered by "let's retro", "capture what we learned", "save this for next time", "update the skill", "what did we learn", "document this for next time", "don't forget this", or "we should remember this". Also suggest it proactively after novel or complex marketing work.
 ---
 
-# Retro - Capture and Commit Learnings
+# Retro - Capture Marketing Learnings
 
-This skill closes the flywheel loop: after completing a novel workflow, it captures what was learned and commits it to the repo so the whole team benefits. Without this step, knowledge stays in one person's head (or worse, in memory where only one user sees it).
+This skill closes the learning loop. After a campaign, workflow, launch, or investigation, it captures what was learned and commits it to the repo so the next marketer starts with better context.
 
-**When to use retro vs curious-intern:** Retro is reactive - something just happened, capture it quick (2 min). Curious-intern is proactive - you have spare time, let Claude interview you to systematically fill gaps (15-30 min). If the user has more than a quick learning to capture, suggest `/curious-intern` instead.
+**When to use retro vs curious-intern:** Retro is reactive - something just happened and should be captured quickly. Curious-intern is proactive - the user has spare time and wants Claude to interview them for broader gaps.
 
 ## Step 1: Interview
 
-Ask the user (batch these, don't drip):
+Ask these together, skipping any that are already obvious from the conversation:
 
-1. **What did we just do?** (one sentence - which system, what workflow)
-2. **What was surprising or non-obvious?** (the stuff a teammate doing this next time would trip on)
-3. **What would you want Claude to know next time?** (the shortcut, the gotcha, the "don't do X")
-4. **Did any existing skill or doc give wrong/stale information?** (if yes, which one)
+1. **What did we just do?** Include campaign, channel, platform, or workflow.
+2. **What was surprising or non-obvious?** Capture the thing another teammate would trip on.
+3. **What should Claude know next time?** The shortcut, caveat, approval rule, source, or "do not do X".
+4. **Did any existing skill or doc give stale or incomplete guidance?** If yes, name it.
 
-If the conversation history makes any of these obvious, skip that question and state your assumption for confirmation.
-
-## Step 2: Route the Learning
-
-Based on the answers, determine where each piece of knowledge belongs:
+## Step 2: Route The Learning
 
 | What was learned | Where it goes | Action |
 |-----------------|---------------|--------|
-| System behavior, API quirk, failure mode | `systems/owned/<system>.md` | Add to "Known Issues / Failure Modes" or relevant section |
-| New skill workflow or improvement to existing skill | `.claude/skills/<name>/SKILL.md` or `knowledge/` | Update the skill instructions or add a knowledge file |
-| Missing step in a workflow, wrong assumption | `.claude/skills/<name>/SKILL.md` | Fix the instruction |
-| Team convention or workflow rule | `CLAUDE.md` or `references/` | Add to the appropriate section |
-| Stale information (wrong board ID, dead URL, renamed service) | The file that contains the stale info | Fix it directly |
-| User's personal preference (style, tone, approach) | Memory | Save to memory - this is the ONLY case for memory |
+| Platform behavior, campaign risk, workflow quirk, or failure mode | `systems/owned/<system>.md` | Add to the relevant section |
+| Launch checklist or repeatable workflow improvement | `.claude/skills/<name>/SKILL.md` or `knowledge/` | Update the skill |
+| Missing step, wrong assumption, or platform fallback | `.claude/skills/<name>/SKILL.md` | Fix the instruction |
+| Partner handoff, approval rule, or team convention | `CLAUDE.md` or `references/` | Add the durable rule |
+| Stale board ID, channel ID, dashboard link, or owner | The file that contains it | Fix directly |
+| Personal preference | Memory | Only if it applies to one user and not the team |
 
-**Important:** If you're tempted to save something to memory, ask yourself: "Would this help OTHER team members too?" If yes, it belongs in the repo.
+If it would help another marketer, it belongs in the repo.
 
-## Step 3: Make the Changes
+## Step 3: Make The Changes
 
-1. Read the target file(s) to understand current content
-2. Make the edit - add the learning in the appropriate section, following the file's existing structure
-3. If adding to a system doc, update the `<!-- last-reviewed: YYYY-MM-DD -->` date
-4. If the learning is substantial enough to warrant a PR (new section, new knowledge file, significant update), open a pull request (via `/pr-ship` if the plugin is installed, otherwise git + your GitHub tooling)
-5. If it's a small fix (typo, stale URL, one-line addition), just make the edit directly
+1. Read target files before editing.
+2. Add concise, practical context in the file's existing structure.
+3. If editing a system doc, update `<!-- last-reviewed: YYYY-MM-DD -->`.
+4. If the learning is substantial, create a PR. If it is a tiny stale-link or typo fix, make the edit directly.
 
 ## Step 4: Confirm
 
-Show the user what was captured and where:
+Show what was captured and where:
 
-```
+```markdown
 Captured learnings:
 
-1. Added failure mode "X causes Y" to systems/owned/airflow.md
-2. Updated skill step 3 in .claude/skills/airflow-debug/SKILL.md to include Z
-3. Fixed stale board ID in references/monday_boards.md
+1. Added CRM re-enrollment caveat to systems/owned/crm-lifecycle.md
+2. Updated campaign launch checklist with the tracking QA step
+3. Fixed stale #campaign-launches channel ID in references/slack.md
 
 These changes are [committed / ready for PR].
 ```
 
-## When to Suggest This Skill Proactively
+## When To Suggest This Skill
 
-After completing any workflow where:
-- You had to be guided through steps that weren't in a skill
-- You discovered a system behavior that isn't documented
-- An existing skill gave wrong or incomplete instructions
-- The user corrected you on something that other users would also need to know
+Suggest `/retro` after work where:
 
-Say: "We learned some things during this workflow. Want to run `/retro` to capture them before they're lost?"
+- The user had to explain a step that is not documented
+- A platform behaved in a surprising way
+- A campaign or channel result changed the team's playbook
+- A skill routed incorrectly or lacked a fallback
+- A partner approval or handoff rule became clear
+
+Use this prompt:
+
+> We learned something useful here. Want to run `/retro` so the next campaign benefits from it?
 
 ## Key Principles
 
-- **Repo over memory.** System knowledge in memory is a bug, not a feature. Only user preferences go to memory.
-- **Small, frequent updates beat big documentation pushes.** Don't wait for a "documentation sprint" - capture learnings immediately while context is fresh.
-- **Update the `last-reviewed` date** on any system doc you touch. This keeps `/health-check` accurate.
-- **Don't duplicate.** Before adding something, check if it's already documented elsewhere. If it is, update the existing content rather than adding a second copy.
+- **Repo over memory.** Team knowledge belongs in version-controlled files.
+- **Small and immediate beats big and late.** Capture the useful part while it is fresh.
+- **Avoid duplicates.** Update the source section instead of creating a second copy.
+- **Keep it actionable.** Write what a marketer should do differently next time.

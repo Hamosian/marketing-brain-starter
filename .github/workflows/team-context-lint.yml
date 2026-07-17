@@ -1,4 +1,4 @@
-name: Team Context Lint
+name: Marketing Brain Lint
 
 on:
   pull_request:
@@ -49,7 +49,7 @@ jobs:
           if [ -n "$hits" ]; then
             echo "$hits" | while IFS= read -r line; do
               file=$(echo "$line" | cut -d: -f1)
-              echo "::error file=$file::Unfilled {{PLACEHOLDER}} found - run /setup to replace"
+              echo "::error file=$file::Unfilled {{PLACEHOLDER}} found - run /setup to personalize the Marketing Brain"
             done
             failed=1
           fi
@@ -60,9 +60,8 @@ jobs:
           failed=0
           for f in *.plugin *.zip *.tar.gz *.jar; do
             if [ -f "$f" ]; then
-              echo "::error file=$f::Binary/packaged file should not be in the repo (use pointers, not copies)"
+              echo "::error file=$f::Binary/packaged file should not be in the repo (link to source assets instead)"
               failed=1
             fi
           done
           exit $failed
-

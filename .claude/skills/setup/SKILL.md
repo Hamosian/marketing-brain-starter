@@ -1,180 +1,159 @@
 ---
 name: setup
-description: Use this skill when setting up a new team context for the first time, when the user says "set up my team context", "configure team context", "fill in placeholders", "initialize team context", "onboard my team", "set up", or when you detect that files still contain unfilled {{PLACEHOLDER}} values. This is the interactive onboarding wizard that replaces all template placeholders with real team data.
+description: Use this skill when setting up a Marketing Brain for the first time, when the user says "set up my marketing brain", "configure marketing brain", "fill in placeholders", "initialize marketing brain", "onboard my marketing team", "set up", or when files still contain unfilled {{PLACEHOLDER}} values. This is the interactive onboarding wizard that replaces template placeholders with real marketing team data.
 ---
 
-# Team Context Setup Wizard
+# Marketing Brain Setup Wizard
 
-This skill walks you through setting up your team's context. It replaces all the `{{PLACEHOLDER}}` values in the template with your real team data.
+This skill personalizes the starter for a real marketing team. It replaces `{{PLACEHOLDER}}` values, creates first system stubs, and leaves the team with a usable Marketing Brain.
 
 ## Step 0: Check State
 
-First, scan for unfilled placeholders:
+Scan for unfilled placeholders:
 
 ```bash
 grep -r '{{' --include='*.md' --include='*.json' . | grep -v node_modules | grep -v '.git/' | grep -v '_example' | head -30
 ```
 
-If NO `{{` patterns found: tell the user setup is already complete. Suggest `/health-check` to verify everything looks good, or `/curious-intern` to start filling in knowledge gaps.
+If no placeholders are found, tell the user setup appears complete and suggest `/health-check`.
 
-If placeholders are found: continue to Step 1.
-
----
+If placeholders remain, continue.
 
 ## Step 1: Welcome
 
 Say something like:
 
-> Hey! Let's get your team context set up. I'll ask you some questions about your team, then fill everything in automatically. Takes about 5 minutes.
+> Let's set up your Marketing Brain. I'll ask about your team, channels, monday boards, core marketing systems, and partner handoffs, then fill the repo automatically. It usually takes 5-10 minutes.
 >
-> I'll need some IDs from Slack and Monday - and depending on your team type, maybe GitHub and PagerDuty too. I'll tell you exactly where to find each one as we go.
+> We will need a few stable IDs from Slack and monday. I will tell you where to find them as we go.
 
----
+## Step 2: Team Identity
 
-## Step 1.5: Team Type
+Ask these together:
 
-Ask:
+1. **Team name** - e.g. "Growth Marketing", "Lifecycle Marketing", "Product Marketing"
+2. **Team slug** - suggest one from the name, e.g. `growth-marketing`
+3. **Marketing function** - demand gen, lifecycle, product marketing, content, brand, web, partner marketing, marketing ops, integrated marketing, or mixed
+4. **Group name** - e.g. "Marketing", "GTM", "Revenue"
+5. **Marketing stack** - main tools and what they are used for, e.g. "HubSpot (CRM), Webflow (CMS), GA4/Looker (reporting), monday (work tracking)"
 
-> What kind of team are you? This helps me tailor the setup to your workflow.
->
-> - **Engineering** (builds and ships software - product teams included)
-> - **Data / BI / Analytics** (pipelines, dashboards, reports)
-> - **Sales** (pipeline, deals, customer relationships)
-> - **Marketing** (campaigns, content, launches)
-> - **HR** (recruiting, onboarding, people ops)
-> - **Finance** (budgets, forecasting, reporting)
-> - **Other** (I'll tell you what we do)
+Store the marketing function in `{{TEAM_TYPE}}`.
 
-Store the answer as `{{TEAM_TYPE}}`. This affects which questions you ask next and how you configure skills.
+## Step 3: People And Channels
 
-**Team type determines what to ask and skip:**
+Ask these together:
 
-| Question area | Engineering | Data/BI | Sales | Marketing | HR | Finance |
-|---------------|:-----------:|:-------:|:-----:|:---------:|:--:|:-------:|
-| GitHub repos | Yes | Optional | Skip | Skip | Skip | Skip |
-| PagerDuty | Yes | Optional | Skip | Skip | Skip | Skip |
-| Monday boards | Yes | Yes | Yes | Yes | Yes | Yes |
-| Slack channel | Yes | Yes | Yes | Yes | Yes | Yes |
-| Systems owned | Yes | Yes | Yes | Yes | Yes | Yes |
+**First team member / champion**
 
----
+1. Name
+2. Role
+3. Focus area
+4. Slack ID - right-click name in Slack, then "Copy member ID"
+5. Email
+6. GitHub login, only if website or analytics PRs matter
 
-## Step 2: Interview - Identity
+**Manager** (skip if same person)
 
-Ask all of these in a single `AskUserQuestion` message:
+7. Name
+8. Slack ID
+9. Email
 
-Adapt the intro based on `{{TEAM_TYPE}}`:
-- **Engineering teams:** "I'll need some IDs from Slack, Monday, GitHub, and PagerDuty."
-- **Data/BI teams:** "I'll need some IDs from Slack and Monday - and optionally GitHub and PagerDuty if you use them."
-- **All other teams:** "I'll need some IDs from Slack and Monday."
+**Primary Slack channel**
 
-**Team basics:**
-1. **Team name** - the display name (e.g. "Platform Infrastructure", "Growth Backend")
-2. **Team slug** - for file names and URLs. I'll suggest one based on your team name - you can confirm or change it. (e.g. "platform-infra", "growth-backend")
-3. **Group name** - the larger org group (e.g. "Platform", "Core Infrastructure", "Growth")
-4. **Tech stack** - main languages and what they're used for (e.g. "TypeScript (services), Python (data pipelines)")
+10. Channel name without `#`
+11. Channel ID - open channel details and scroll to the bottom, or copy the channel link and use the final ID segment
 
-**Your details (first team member):**
-5. **Name**
-6. **Role** - team lead, IC, manager, etc.
-7. **GitHub login**
-8. **Slack ID** - to find this: right-click your name in Slack > "Copy member ID"
-9. **Email**
+Optional but useful:
 
-**Manager** (skip if you are the manager):
-10. **Name**
-11. **Slack ID**
-12. **Email**
+- Announcement channel
+- Campaign launch channel
+- Website request channel
+- Marketing analytics channel
 
-**Main Slack channel:**
-13. **Channel name** (without the #)
-14. **Channel ID** - to find this: right-click the channel name > "View channel details" > scroll to bottom. Or "Copy link" and the ID is the last segment of the URL. Slack channel IDs start with `C`.
+## Step 4: Boards And Operating Surfaces
 
----
+Ask these together:
 
-## Step 3: Interview - Systems & Tools
+1. **Primary marketing tasks board ID** - number in the monday board URL after `/boards/`
+2. **monday workspace subdomain** - if boards live at `https://acme.monday.com`, use `acme`
+3. **How work is organized** - planning cycles, groups, campaign calendar, or status/date/owner only
+4. **Campaign calendar board ID** if the team uses one
+5. **Content calendar / website / paid experiment board IDs** if they exist
 
-Ask all of these in a single `AskUserQuestion` message:
+Explain that exact column keys can be filled later in `references/monday_boards.md`.
 
-**Systems you own:**
-1. List the systems/services your team owns and operates. For each one, give a name and one-line description. Minimum 1.
-   Example: "Widget Service - handles widget CRUD and webhooks"
+## Step 5: Marketing Systems
 
-**PagerDuty (Engineering and Data/BI teams only - skip for other team types):**
-2. **Team slug** - as it appears in PagerDuty
-3. **Team ID** - to find this: PagerDuty > People > Teams > click your team > the ID is in the URL (starts with P)
-4. **Escalation policy ID** - to find this: PagerDuty > People > Escalation Policies > click yours > the ID is in the URL (starts with P)
-5. **PagerDuty subdomain** - the prefix in your PagerDuty URL. If your incidents live at `https://acme.pagerduty.com/...`, the subdomain is `acme`.
+Ask for the systems the team owns or operates. Minimum one.
 
-**Monday boards:**
-6. **Tasks board ID** - to find this: open your iteration/tasks board > the number in the URL after `/boards/`. Board IDs are numeric (e.g. `1234567890`).
-7. **Sprints board ID** - to find this: open your sprints board > the number in the URL. Also numeric.
-8. **Workspace subdomain** - the prefix in your monday.com URL. If your boards live at `https://acme.monday.com/...`, the subdomain is `acme`.
+For each system, capture:
 
-**GitHub (Engineering and Data/BI teams only - skip for other team types):**
-9. **Organization** - (e.g. "acme-corp")
-10. **Repos** your team works in - org/name + brief description. At least 1.
-    Example: "acme-corp/widget-service - main backend service"
+- Name
+- One-line description
+- Criticality: Critical, High, Medium, Low
+- Owner or primary approver
+- Main platform/source
+- Main Slack channel or partner path
 
-**Team members** (optional - you can always add these later in `references/team.md`):
-11. Additional team members: name, Slack ID, GitHub login, email
+Suggested starter systems:
 
----
+- CRM and lifecycle
+- Marketing website / CMS
+- Paid acquisition
+- Campaign calendar
+- Content operations
+- Marketing measurement / attribution
+- Events / webinars
+- SEO / AI search
 
-## Step 4: Generate the Slug
+Also ask for partner-owned dependencies:
 
-From the team name, suggest a slug:
-- Lowercase
-- Hyphens instead of spaces
-- Short (e.g. "Platform Infrastructure" -> "platform-infra")
+- Product analytics
+- Sales CRM
+- Brand library
+- Data warehouse / analytics platform
+- Product roadmap
+- Web team
 
-Confirm with the user before proceeding.
+## Step 6: Build Replacement Map
 
----
-
-## Step 5: Apply Changes
-
-Now replace all `{{PLACEHOLDER}}` values across every file.
-
-### 5a. Build the replacement map
-
-From the interview answers, build a map:
+Use the interview answers to replace:
 
 | Placeholder | Value |
 |---|---|
-| `{{TEAM_NAME}}` | [from interview] |
-| `{{TEAM_SLUG}}` | [generated slug] |
-| `{{TEAM_TYPE}}` | [from interview - engineering, data-bi, sales, marketing, hr, finance, other] |
-| `{{GROUP_NAME}}` | [from interview] |
-| `{{TECH_STACK}}` | [from interview] |
-| `{{TEAM_SLACK_CHANNEL}}` | [from interview] |
-| `{{TEAM_SLACK_CHANNEL_ID}}` | [from interview] |
-| `{{PD_TEAM_SLUG}}` | [from interview] |
-| `{{PD_TEAM_ID}}` | [from interview] |
-| `{{PD_ESCALATION_POLICY_ID}}` | [from interview] |
-| `{{PAGERDUTY_SUBDOMAIN}}` | [from interview - omit for non-eng/non-data teams] |
-| `{{MONDAY_TASKS_BOARD_ID}}` | [from interview] |
-| `{{MONDAY_SPRINTS_BOARD_ID}}` | [from interview] |
-| `{{MONDAY_WORKSPACE}}` | [from interview] |
-| `{{TEAM_LEAD_NAME}}` | [from interview] |
-| `{{TEAM_LEAD_GITHUB}}` | [from interview] |
-| `{{TEAM_LEAD_SLACK_ID}}` | [from interview] |
-| `{{TEAM_LEAD_EMAIL}}` | [from interview] |
-| `{{MANAGER_NAME}}` | [from interview] |
-| `{{MANAGER_SLACK_ID}}` | [from interview] |
-| `{{MANAGER_EMAIL}}` | [from interview] |
-| `{{GITHUB_ORG}}` | [from interview] |
-| `{{GITHUB_TEAM_LOGINS}}` | [pipe-separated GitHub logins] |
-| `{{SETUP_DATE}}` | [today's date YYYY-MM-DD] |
+| `{{TEAM_NAME}}` | Team name |
+| `{{TEAM_SLUG}}` | Confirmed slug |
+| `{{TEAM_TYPE}}` | Marketing function |
+| `{{GROUP_NAME}}` | Group name |
+| `{{TECH_STACK}}` | Marketing stack |
+| `{{TEAM_SLACK_CHANNEL}}` | Primary channel name |
+| `{{TEAM_SLACK_CHANNEL_ID}}` | Primary channel ID |
+| `{{MONDAY_TASKS_BOARD_ID}}` | Primary marketing tasks board ID |
+| `{{MONDAY_SPRINTS_BOARD_ID}}` | Planning cycle board ID, or `not used` |
+| `{{MONDAY_WORKSPACE}}` | monday workspace subdomain |
+| `{{TEAM_LEAD_NAME}}` | First team member name |
+| `{{TEAM_LEAD_GITHUB}}` | GitHub login or `not used` |
+| `{{TEAM_LEAD_SLACK_ID}}` | First team member Slack ID |
+| `{{TEAM_LEAD_EMAIL}}` | First team member email |
+| `{{MANAGER_NAME}}` | Manager name |
+| `{{MANAGER_SLACK_ID}}` | Manager Slack ID |
+| `{{MANAGER_EMAIL}}` | Manager email |
+| `{{GITHUB_ORG}}` | GitHub org or `not used` |
+| `{{GITHUB_TEAM_LOGINS}}` | Pipe-separated logins, or `not used` |
+| `{{SETUP_DATE}}` | Today's date YYYY-MM-DD |
 
-### 5b. Replace placeholders in all files
+For any placeholder not relevant to the team, use `not used` rather than leaving it blank.
 
-For each file that contains `{{` patterns:
-1. Read the file
-2. Replace all `{{PLACEHOLDER}}` values with their real values from the map
-3. Write the file back
+## Step 7: Apply Placeholder Replacements
 
-Files to process:
+For every file containing setup placeholders:
+
+1. Read the file.
+2. Replace all `{{PLACEHOLDER}}` values from the map.
+3. Preserve markdown structure and comments.
+
+Process at least:
+
 - `CLAUDE.md`
 - `README.md`
 - `references/team.md`
@@ -184,70 +163,74 @@ Files to process:
 - `.claude/skills/good-morning/SKILL.md`
 - `.claude/skills/pm-story/SKILL.md`
 
-### 5b-extra. Enable pr-ship plugin for engineering/data-bi teams
+## Step 8: Populate Core Tables
 
-For **engineering** and **data-bi** team types only, add the `pr-ship` plugin to `.claude/settings.json`:
+### Systems Reference in `CLAUDE.md`
 
-```json
-"pr-ship@agentic-builders-hub": true
-```
-
-Add this to the `enabledPlugins` object. Skip this for all other team types.
-
-### 5c. Populate the Systems Reference table in CLAUDE.md
-
-For each system the user listed, add a row to the owned systems table:
+For each owned system:
 
 ```markdown
 | System Name | `systems/owned/system-slug.md` |
 ```
 
-### 5d. Populate the Code Repo table in CLAUDE.md
-
-For each GitHub repo the user listed, add a row:
+For each partner-owned dependency:
 
 ```markdown
-| Domain description | `Org/repo-name` | Load `systems/owned/relevant-system.md` |
+| System Name (owned by Team) | `systems/reference/system-slug.md` |
 ```
 
-### 5e. Add team members to references/team.md
+### Team roster in `references/team.md`
 
-If the user provided additional team members, add rows to the Team table.
+Add the first team member and any additional teammates with focus areas.
 
-### 5f. Build GitHub team login allowlist
+### Slack reference
 
-Combine all GitHub logins (first member + any additional members) into a pipe-separated string (e.g. `user1|user2|user3`). Replace `{{GITHUB_TEAM_LOGINS}}` in CLAUDE.md (under the Team section's "GitHub logins" field).
+Add channels mentioned during setup with purpose and notes.
 
-### 5g. Create system doc stubs
+### monday reference
 
-For each owned system, create `systems/owned/<slug>.md` using the full template from `systems/README.md`:
+Add any campaign, content, website, paid, or analytics boards the user named.
+
+## Step 9: Create System Doc Stubs
+
+Create `systems/owned/<slug>.md` for each owned system using the full marketing system template:
 
 ```markdown
 <!-- last-reviewed: YYYY-MM-DD -->
 # System Name
 
-> One-liner from the interview
+> One-line description from setup.
 
 ## Overview
-[To be filled in - tell Claude "teach me about [System Name]" or run /curious-intern]
+[To be filled in - say "teach me about System Name" or run /curious-intern]
 
 ## How Claude Works With This
 | Action | How |
 |--------|-----|
-| Make changes | GitHub PRs to `Org/repo-name` |
-| Investigate | [To be filled in] |
-| Deploy | [To be filled in] |
+| Make changes | Platform/admin path or monday board |
+| Investigate | Dashboard, report, owner, or Slack channel |
+| Publish / launch | Approval path or scheduler |
 
-## Repos
-| Repo | What it contains |
-|------|-----------------|
-| `Org/repo-name` | [from interview] |
+## Platforms / Data Sources
+| Source | What it contains | Owner |
+|--------|------------------|-------|
+| [Platform] | [To be filled in] | [Owner] |
 
-## Architecture
-[To be filled in]
+## Operating Model
+- Owner: [from setup]
+- Approval path: [To be filled in]
+- Intake path: [To be filled in]
 
-## Key Entry Points
+## Key Surfaces
 - [To be filled in]
+
+## Audience / Segmentation
+- [To be filled in]
+
+## Measurement
+| Metric | Source | Notes |
+|--------|--------|-------|
+| [To be filled in] | | |
 
 ## Known Issues / Failure Modes
 | Issue | Symptoms | Resolution |
@@ -257,96 +240,65 @@ For each owned system, create `systems/owned/<slug>.md` using the full template 
 ## Related Systems
 - **Upstream:** [To be filled in]
 - **Downstream:** [To be filled in]
+- **Partner teams:** [To be filled in]
 
 ## Pointers
+- **Skills:** [To be filled in]
 - **Dashboards:** [To be filled in]
-- **Alerts:** [To be filled in]
+- **Boards:** [To be filled in]
+- **Channels:** [from setup if known]
 ```
+
+For partner-owned dependencies, create `systems/reference/<slug>.md` with the light template.
 
 Set `last-reviewed` to today's date.
 
-Adjust the system doc content based on team type:
-- **Engineering teams:** Use "Repos" section, "Deploy" in How Claude Works With This
-- **Data/BI teams:** Use "Data Sources" instead of "Repos", "Refresh" instead of "Deploy"
-- **Sales/Marketing/HR/Finance:** Use "Platforms & Tools" instead of "Repos", omit "Deploy"
+## Step 10: Replace The README
 
----
+After setup, replace `README.md` with the post-setup version from `.claude/skills/setup/README-INSTANCE.md`:
 
-## Step 6: Show Summary
+1. Read `README-INSTANCE.md`.
+2. Replace placeholders using the same map.
+3. Populate the systems table with created docs.
+4. Keep the skills table focused on the active marketing workflows.
 
-Before committing, show the user a summary:
+## Step 11: Summary And Commit
 
-```
-Setup complete! Here's what I did:
+Before committing, show:
+
+```markdown
+Setup complete. Here's what changed:
 
 - Filled X placeholders across Y files
-- Created Z system doc stubs: [list them]
-- Added N team members to the roster
+- Created Z marketing system docs
+- Added N channels / boards / partner paths
+- Updated README for this team
 
 Ready to commit these changes?
 ```
 
-Use `AskUserQuestion` to confirm.
-
----
-
-## Step 6.5: Replace README
-
-Replace `README.md` with the post-setup version from `.claude/skills/setup/README-INSTANCE.md`:
-1. Read `README-INSTANCE.md`
-2. Replace all `{{PLACEHOLDER}}` values in it (same as other files)
-3. Populate the Skills table with the 8 post-setup skills (not setup itself)
-4. Populate the Systems table with any system stubs created
-5. Write the result to `README.md`, replacing the pitch README
-
----
-
-## Step 7: Commit
+Ask for confirmation. If approved:
 
 ```bash
 git add -A
-git commit -m "init: set up team context for [team name]"
+git commit -m "init: set up marketing brain for [team name]"
 ```
 
----
+## Step 12: What's Next
 
-## Step 8: What's Next
+After commit, suggest:
 
-```
-Your team context is ready! Here's what to do next:
+```markdown
+Your Marketing Brain is ready.
 
-- [ ] Try it: say "good morning" for your first morning brief
-- [ ] Say "teach me about [your most critical system]" to write your first real system doc
-- [ ] Run /curious-intern when you have 15 min to fill knowledge gaps
-- [ ] Fill in references/monday_boards.md with your board column keys
-- [ ] Fill in references/other_teams.md with teams you work with
-- [ ] Push to GitHub and share with your team
-- [ ] Read docs/QUICKSTART.md for the full adoption playbook
-
-Pro tip: After any new workflow, say /retro to capture what you learned.
+- Try "good morning" for the first daily brief.
+- Say "teach me about [most important system]" to fill the first system doc.
+- Fill exact monday column keys in references/monday_boards.md.
+- Add partner teams in references/other_teams.md.
+- Run /curious-intern when you have 15 minutes.
+- Run /retro after the next campaign or workflow that teaches something useful.
 ```
 
----
+## Step 13: Optional Cleanup
 
-## Step 9: Self-Destruct (Optional)
-
-Ask: "Want me to remove the /setup skill? You won't need it again."
-
-If yes:
-```bash
-rm -rf .claude/skills/setup
-git add -A
-git commit -m "chore: remove setup wizard (setup complete)"
-```
-
-If no: "No problem - it'll just sit here quietly. It won't trigger again since there are no more placeholders to fill."
-
----
-
-## Key Principles
-
-- **Batch questions, don't drip.** Two interview rounds, not twenty individual questions.
-- **Explain where to find IDs.** Not everyone knows how to find a Slack channel ID or PagerDuty team ID. Give specific instructions.
-- **Show before committing.** Always show the summary and get confirmation before the git commit.
-- **Suggest next steps.** The setup is just the beginning - point them toward immediate-value actions.
-- **Warm tone.** This is someone's first interaction with their team context. Make it feel welcoming, not bureaucratic.
+Ask whether to remove `/setup` after the team is fully configured. Only remove it if the user confirms.

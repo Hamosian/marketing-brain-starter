@@ -1,17 +1,19 @@
-# Other Teams
+# Partner Teams
 
-> Teams you work with regularly: who to contact, where to reach them, and how to send them work. Add a row the first time a workflow touches a new team.
+> Cross-functional partners marketing works with regularly: what they own, how to reach them, and how to send work their way.
 
-| Team | What they own | Contact | Slack channel | How to send them work |
-|------|---------------|---------|---------------|----------------------|
+| Team | What they own | Contact | Slack channel | Intake / handoff path |
+|------|---------------|---------|---------------|-----------------------|
 <!-- Examples: -->
-<!-- | Data / Analytics | Warehouse, dashboards, pipelines | Jane D. | `#data-requests` | Request board / intake form | -->
-<!-- | Design / Brand | Creative, brand assets | John S. | `#design-requests` | Design intake board | -->
-<!-- | Web Dev | Website infrastructure | - | `#website-dev` | Tickets on their board | -->
+<!-- | Product | Roadmap, launch inputs, feature owners | Jane D. | `#product-marketing-partners` | Product launch brief / roadmap review | -->
+<!-- | Sales | Field feedback, enablement needs, account signals | John S. | `#sales-marketing` | Sales enablement request board | -->
+<!-- | Design / Brand | Creative, brand system, visual QA | Alex R. | `#brand-requests` | Creative intake board | -->
+<!-- | Data / Analytics | Attribution, dashboards, data quality | Priya M. | `#marketing-analytics` | Analytics request board | -->
+<!-- | Web Team | Site infrastructure and code deploys | - | `#website-dev` | Website ticket board | -->
 
 ## Context Repos
 
-If another team runs their own AI context repo, link it here so agents can point cross-team work at the right place. Convention: `{team-slug}-context`.
+If another team runs its own AI context repo, link it here so Claude can route cross-team work to the right place.
 
 | Team | Repo |
 |------|------|

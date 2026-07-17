@@ -1,22 +1,28 @@
 ---
 name: team-intro
-description: Use this skill when the user asks what you know about them, the team, their projects, or their systems - especially in an onboarding framing like "tell me about the team", "onboard me", "what do you know about us", "who's on the team", "what systems do we own", "what can you do for me", or any variant of "what do you know about me and the team". Also trigger when a new person is being onboarded or when the user asks for a team/project overview.
+description: Use this skill when the user asks what you know about the marketing team, their systems, campaigns, channels, partner teams, workflows, or how to get started. Triggered by "tell me about the team", "onboard me", "what do you know about us", "who's on the team", "what marketing systems do we own", "what can you do for me", or any request for a team/project overview.
 ---
 
-# Team Intro
+# Marketing Team Intro
 
-Build a comprehensive team overview from these sources:
+Build a useful onboarding overview from repo context.
 
-1. Read `CLAUDE.md` — team identity, systems table, task routing, workflow conventions
-2. Read `references/team.md` — full roster with Slack IDs, GitHub logins, emails
-3. Read `references/slack.md` — channel directory
-4. Read `PHILOSOPHY.md` — how the team context works and why
+Read:
 
-Present the information in a clear, structured format. Cover:
-- Who the team is and what they own
-- The systems landscape (owned vs reference)
-- Key workflow conventions
-- What Claude can do for them (skill categories)
-- How to get started (recommended reading: PHILOSOPHY.md, then system docs as needed)
+1. `CLAUDE.md` - team identity, routing, systems table, global directives
+2. `references/team.md` - roster, focus areas, contact details
+3. `references/slack.md` - team and partner channels
+4. `references/other_teams.md` - cross-functional partners
+5. `systems/README.md` and any populated systems tables
+6. `PHILOSOPHY.md` - how the Marketing Brain works
 
-Do not recall memories. Build the overview entirely from the repo files above.
+Present:
+
+- Who the marketing team is and what it owns
+- The core systems and partner-owned dependencies
+- The main Slack channels and monday boards
+- How work enters, moves, launches, and gets measured
+- Which skills are available and when to use them
+- The fastest way for a new teammate to get productive
+
+Do not recall memories. Build the overview entirely from repo files.

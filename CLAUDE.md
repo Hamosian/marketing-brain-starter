@@ -1,119 +1,124 @@
-# {{TEAM_NAME}} - Team Context
+# {{TEAM_NAME}} - Marketing Brain
 
 ## Purpose
 
-This repo is {{TEAM_NAME}}'s **Marketing Brain** - a centralized, version-controlled knowledge base designed for AI-first consumption. It transforms Claude from an isolated tool into an operating partner that understands your systems, workflows, conventions, tribal knowledge, and priorities.
+This repo is {{TEAM_NAME}}'s **Marketing Brain**: a version-controlled operating layer for campaign planning, channel execution, lifecycle workflows, partner handoffs, and measurement. It gives Claude the durable context needed to act like a marketing operations partner instead of a blank-slate assistant.
 
-Everything here is structured for **progressive disclosure**: Claude loads only what's needed for the current task, not the entire knowledge base. CLAUDE.md (this file) is always loaded. Everything else is loaded on demand.
+Everything here is structured for **progressive disclosure**. Claude starts with this file, then loads only the references, system docs, or skills needed for the current request.
 
-For the philosophy behind this approach - why it's built this way, the flywheel effect, and the principles that keep it healthy - see `PHILOSOPHY.md`.
+For the operating philosophy behind this repo - why it is built this way and how the learning loop compounds - see `PHILOSOPHY.md`.
 
-> **First time here?** If this file still contains unfilled curly-brace `{{...}}` markers, run `/setup` - the interactive wizard fills everything in from a short interview.
+> **First time here?** If this file still contains unfilled curly-brace `{{...}}` markers, run `/setup` or say "set up my marketing brain".
 
 ## How This Repo Works
 
-```
+```text
 CLAUDE.md (always loaded)
   |
-  +-- marketing-os     (top-level router for broad/cross-system work)
-  +-- references/    (on demand - stable lookup data: IDs, contacts, boards)
-  +-- systems/       (on demand - architecture maps of what you own)
-  +-- .claude/skills/ (on trigger - sub-agents and workflows)
-       +-- knowledge/  (on demand within skills - heavy reference content)
+  +-- marketing-os     (top-level router for broad marketing work)
+  +-- references/      (on demand - people, channels, boards, partner teams)
+  +-- systems/         (on demand - marketing platforms, workflows, dependencies)
+  +-- .claude/skills/  (on trigger - repeatable marketing workflows)
+       +-- knowledge/  (on demand within skills - heavier source material)
 ```
 
-**Rule:** Load files proactively when they're relevant to the task at hand - don't wait for the user to ask. But don't preload everything at session start.
+**Rule:** Load the relevant context as soon as a task points to it. Do not preload every file at session start.
 
 ## Reference Files
 
 | File | Contains |
 |------|----------|
-| `references/team.md` | Team roster (single source of truth) - names, Slack IDs, emails |
-| `references/other_teams.md` | Other teams you work with - contacts, channels |
-| `references/slack.md` | Channel IDs, cross-team channels, user groups |
-| `references/monday_boards.md` | Monday board IDs, workspace IDs, column keys |
+| `references/team.md` | Marketing team roster, focus areas, Slack IDs, and emails |
+| `references/other_teams.md` | Product, Sales, Data, Design, Web, and other partner teams |
+| `references/slack.md` | Channel IDs, announcement channels, intake channels, and user groups |
+| `references/monday_boards.md` | monday board IDs, planning boards, campaign boards, and column keys |
 
 ## Systems Reference
 
-Load the relevant file when working on a system-specific task.
+Load the relevant file when a task mentions a platform, channel, workflow, or measurement surface.
 
-**Owned systems:**
+**Owned marketing systems:**
 
 | System | File |
 |--------|------|
-<!-- Populated during /setup and as you document more systems. Example: -->
-<!-- | CRM (HubSpot) | `systems/owned/hubspot.md` | -->
+<!-- Populated during /setup and as you document more systems. Examples: -->
+<!-- | CRM and Lifecycle | `systems/owned/crm-lifecycle.md` | -->
 <!-- | Marketing Website | `systems/owned/marketing-website.md` | -->
 <!-- | Paid Acquisition | `systems/owned/paid-acquisition.md` | -->
+<!-- | Campaign Calendar | `systems/owned/campaign-calendar.md` | -->
 
-**Reference systems (you depend on, don't own):**
+**Reference systems (important, but owned elsewhere):**
 
 | System | File |
 |--------|------|
-<!-- Example: | Product analytics (owned by data team) | `systems/reference/product-analytics.md` | -->
+<!-- Example: | Product Analytics (owned by Data) | `systems/reference/product-analytics.md` | -->
+<!-- Example: | Brand Asset Library (owned by Design) | `systems/reference/brand-library.md` | -->
 
 ## Knowledge Routing
 
-When you learn something new during a task, route it to the right place:
+When something useful is learned during marketing work, route it to the right place:
 
-| What you learned | Where it goes | How |
+| What was learned | Where it goes | How |
 |-----------------|---------------|-----|
-| System behavior, platform quirk, failure mode | `systems/owned/<system>.md` | Edit the file, open PR |
-| Skill improvement, missing step, wrong assumption | `.claude/skills/<name>/SKILL.md` or `knowledge/` | Edit the file, open PR |
-| Team convention, workflow rule | This file (`CLAUDE.md`) or `references/` | Edit the file, open PR |
-| User's personal preference or style | Memory | Save to memory |
-| Ephemeral task state | Tasks/plans | Use task tools |
+| Platform behavior, workflow quirk, campaign risk, or failure mode | `systems/owned/<system>.md` | Edit the system doc and open a PR |
+| Repeatable launch, channel, CRM, content, or reporting workflow | `.claude/skills/<name>/SKILL.md` or skill `knowledge/` | Update or create the skill |
+| Team convention, approval rule, partner handoff, or routing rule | `CLAUDE.md` or `references/` | Add the durable rule |
+| Live metric, campaign status, or audience count | Source system only | Link to the dashboard or board, do not copy |
+| Personal style preference | Memory | Save only if it applies to one user, not the team |
 
-**Never save system or team knowledge to memory.** Memory is for individual user preferences only (e.g. "I prefer ASCII diagrams"). Anything about the team, its tools, how systems work, how workflows run, or how this repo operates belongs in the repo where the whole team benefits. If you're unsure, it goes in the repo.
+**Never save marketing system or team operating knowledge to memory.** Anything that helps the team run campaigns, understand channels, move work, or measure impact belongs in this repo where everyone can review and reuse it.
 
-After completing a novel workflow or discovering something non-obvious, suggest running `/retro` to capture the learning properly.
+After a new workflow, unexpected blocker, or campaign learning, suggest `/retro` so the learning becomes durable.
 
 ## Content Boundary
 
-If the content would break when the platform it describes changes, it belongs in that platform's source-of-truth. If it's useful regardless of which tool you're in, it belongs here.
+If the content changes every time a platform refreshes, it belongs in that platform. If it helps Claude understand how marketing work should run across tools, it belongs here.
 
-- **Pointers, not copies** - link to dashboards, boards, CRM views. Never duplicate live data.
-- **Progressive disclosure** - system-specific details (board IDs, dashboard URLs, account IDs) belong in `systems/` or skill `knowledge/` files, not here.
+- **Pointers, not copies** - link to dashboards, monday boards, CRM lists, ad accounts, CMS pages, briefs, and asset folders.
+- **Progressive disclosure** - put IDs, views, URLs, account names, and platform details in `systems/`, `references/`, or skill `knowledge/` files.
+- **Marketing decision context** - capture audience, offer, channel, owner, success metric, approval path, and launch date whenever they matter.
 
 ## Editing This Repo
 
 Edits to `CLAUDE.md`, `systems/**`, `references/**`, and `.claude/skills/**` are linted on every PR (`.github/workflows/team-context-lint.yml`). Before opening a PR:
-- Every `.claude/skills/*/SKILL.md` must start with YAML frontmatter containing `name:` and `description:`.
-- No unfilled template placeholders remain (the curly-brace markers that `/setup` fills in).
-- No binary or packaged files (`*.zip`, `*.plugin`, `*.tar.gz`, `*.jar`) in the repo root. Pointers, not copies.
+
+- Every `.claude/skills/*/SKILL.md` starts with YAML frontmatter containing `name:` and `description:`.
+- No unfilled setup placeholders remain after setup.
+- No binary exports or packaged files live in the repo root. Link to source assets instead.
 
 ## Team
 
 - **Team:** {{TEAM_NAME}}
-- **Team type:** {{TEAM_TYPE}}
+- **Marketing function:** {{TEAM_TYPE}}
 - **Group:** {{GROUP_NAME}}
 - **Lead:** {{TEAM_LEAD_NAME}}
 - **Manager:** {{MANAGER_NAME}}
-- **Tools:** {{TECH_STACK}}
+- **Marketing stack:** {{TECH_STACK}}
 - **monday workspace:** `{{MONDAY_WORKSPACE}}.monday.com`
 - **Primary Slack:** `#{{TEAM_SLACK_CHANNEL}}` (channel ID: `{{TEAM_SLACK_CHANNEL_ID}}`)
-- **Primary Monday boards:** Tasks `{{MONDAY_TASKS_BOARD_ID}}` (full details in `references/monday_boards.md`)
+- **Primary monday board:** Tasks `{{MONDAY_TASKS_BOARD_ID}}` (full details in `references/monday_boards.md`)
 
-Full roster, Slack IDs, and emails in `references/team.md`.
+Full roster, Slack IDs, emails, and focus areas live in `references/team.md`.
 
 ## Task Routing
 
-Different task types use different entry points. If a skill exists for it, use the skill - it has the full workflow.
+Different marketing requests use different entry points. If a skill exists for the work, use it.
 
 | Task type | Start with |
-|-----------|-----------|
-| Broad or cross-system marketing work | `/marketing-os` - routes to sub-agents, tracks state, closes the loop |
-| Task creation | `/pm-story` - writes the full story (Why, What, Done When) |
-| Morning brief / standup | `/good-morning` |
-| Capturing learnings | `/retro` |
+|-----------|------------|
+| Broad or cross-channel marketing work | `/marketing-os` - routes, prioritizes, synthesizes, and closes the loop |
+| Campaign, content, CRM, or ops task creation | `/pm-story` - writes the full monday brief |
+| Daily work and risk scan | `/good-morning` |
+| Capturing campaign or workflow learnings | `/retro` |
 | Checking repo health | `/health-check` |
-| Knowledge extraction | `/curious-intern` - interviews you to fill knowledge gaps |
-| Team overview / onboarding | `/team-intro` |
+| Extracting tribal knowledge | `/curious-intern` |
+| Team overview and onboarding | `/team-intro` |
 | Listing available skills | `/list-skills` |
-<!-- Add rows here as you build new skills. Examples from mature instances: -->
-<!-- | Brand / visual identity | `/brand-guidelines` - colors, typography, design rules | -->
-<!-- | Website page CRO | `/page-cro` - audit and optimize pages for conversion | -->
-<!-- | Slide decks | `/branded-presentation` - on-brand .pptx | -->
+<!-- Add rows as the team creates specialist skills. Examples: -->
+<!-- | Brand and messaging | `/brand-guidelines` - voice, positioning, visual rules | -->
+<!-- | Landing page CRO | `/page-cro` - audit and optimize conversion surfaces | -->
+<!-- | Lifecycle programs | `/lifecycle-agent` - email, nurture, segmentation, automation | -->
+<!-- | Campaign launch | `/campaign-launch` - brief, checklist, owners, measurement | -->
 
 ## Sub-Agent Registry
 
@@ -121,40 +126,43 @@ For broad requests, start with `/marketing-os`; it chooses from this registry an
 
 | Domain | Skill |
 |--------|-------|
-| Work state and intake | `/pm-story` |
+| Work intake and task briefs | `/pm-story` |
 | Learning and repo hygiene | `/retro`, `/curious-intern`, `/health-check` |
-<!-- Grow this registry as you build domain sub-agents. Examples from mature instances: -->
-<!-- | Data and reporting | `/data-agent`, `/measurement-agent` | -->
+<!-- Grow this registry as you build domain sub-agents. Examples: -->
+<!-- | Measurement and reporting | `/measurement-agent`, `/analytics-agent` | -->
 <!-- | CRM and lifecycle | `/crm-agent`, `/lifecycle-agent` | -->
-<!-- | Comms | `/slack-agent` | -->
-<!-- | Brand, content, strategy | `/content-agent` | -->
+<!-- | Content and messaging | `/content-agent`, `/brand-guidelines` | -->
 <!-- | Paid acquisition | `/paid-acquisition-agent` | -->
 <!-- | Website and CRO | `/website-agent`, `/page-cro` | -->
 <!-- | SEO and AI search | `/seo-agent` | -->
 <!-- | Campaign orchestration | `/campaign-agent` | -->
+<!-- | Events and webinars | `/events-agent` | -->
 
-**Catch-all:** `/marketing-os` may invoke any skill in `.claude/skills/` when it fits the task, even if not listed here. When unsure which skill owns a request, consult `/list-skills`.
+**Catch-all:** `/marketing-os` may invoke any skill in `.claude/skills/` when it fits the task, even if the skill is not listed here. When unsure, consult `/list-skills`.
 
 ## Morning Brief Sources
 
-The `/good-morning` skill reads this table to determine what to include in the daily brief. Uncomment sources your team uses.
+The `/good-morning` skill reads this table to decide what to include in the daily brief. Uncomment sources your team uses.
 
 | Source | Type | Config | Enabled |
 |--------|------|--------|---------|
-| Active tasks | monday | board: `{{MONDAY_TASKS_BOARD_ID}}` | Yes |
-| Unowned bugs | monday | board: `{{MONDAY_TASKS_BOARD_ID}}`, type: bug, unowned | Yes |
+| Active marketing work | monday | board: `{{MONDAY_TASKS_BOARD_ID}}` | Yes |
+| Unowned requests or blockers | monday | board: `{{MONDAY_TASKS_BOARD_ID}}`, owner empty or blocked | Yes |
 | Slack: team channel | slack | channel: `{{TEAM_SLACK_CHANNEL_ID}}` (#{{TEAM_SLACK_CHANNEL}}) | Yes |
+<!-- | Campaign calendar | monday | board: your-campaign-calendar-board | No | -->
+<!-- | Website launches | monday | board: your-website-board | No | -->
 <!-- | Open PRs | github | repos: your-org/your-repo | No | -->
 <!-- | Merged PRs | github | repos: your-org/your-repo | No | -->
 
 ## Global Agent Directives
 
-- **Be concise:** Prefer brief, direct communication. Skip boilerplate explanations.
-- **Marketing OS first:** If a request spans multiple systems, starts as vague marketing intent, or needs prioritization, use `/marketing-os` before specialist skills.
-- **Load context proactively:** When a task mentions a system, load its system doc without being asked. But don't preload all files at session start.
-- **Safety first:** Always ask for confirmation before executing mutating API calls (CRM writes, monday updates, Slack message sending). Unless triggered via a specific automation skill.
-- **Slack tone:** Messages sent on behalf of the team should be warm and human - never bare/robotic. If the context is a thread, always reply in the thread (set `thread_ts`).
-- **Slack attribution:** Every Slack message must identify that it was sent by an agent. Add a footer line as the last line of the message: `_Posted by the team's AI agent_`.
-- **Monday task creation:** Always use the `/pm-story` skill when creating tasks - it handles story writing (Why, What, Done When, Open Questions) on top of item creation. Don't go direct to the API.
-- **Self-improvement:** When a workflow produces a non-obvious learning, suggest `/retro` to capture it in the repo. Don't let tribal knowledge stay in one person's memory.
-- **Cross-team context:** If a task involves another team's systems, check `references/other_teams.md` for their context repo. Repo naming convention: `{team-slug}-context`.
+- **Marketing OS first:** If a request spans channels, platforms, audiences, launch timing, prioritization, or unclear marketing intent, use `/marketing-os`.
+- **Evidence beats vibes:** Name the source and limitation behind performance claims, audience claims, or prioritization recommendations.
+- **Load context proactively:** When a request mentions a system, channel, campaign, or platform, load its system doc before acting.
+- **Approval before writes:** Ask before mutating CRM records, monday items, ad platforms, CMS pages, Slack messages, email tools, or production workflows unless a specific automation explicitly allows it.
+- **Campaign-ready output:** For briefs and tasks, capture why it matters, audience, message/offer, channel/surface, owner, due date, and Done When.
+- **Slack tone:** Messages sent for the team should be warm, clear, and human. Reply in-thread when the context is a thread.
+- **Slack attribution:** Every Slack message sent by an agent ends with `_Posted by the team's AI agent_`.
+- **Monday task creation:** Use `/pm-story` for task creation so the board gets a complete marketing brief instead of a bare title.
+- **Self-improvement:** When a workflow produces a non-obvious learning, suggest `/retro`.
+- **Partner context:** If a task involves another team, check `references/other_teams.md` for contact, channel, intake path, and context repo.
