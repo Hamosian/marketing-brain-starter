@@ -224,7 +224,7 @@ Open the visualizer, start a Claude Code or Codex session in this repo, and use 
 
 [Graphify](https://github.com/Graphify-Labs/graphify) can generate a visual, queryable knowledge graph from this repo when the team wants another way to explore systems, skills, references, and docs.
 
-<video src="assets/graphify-knowledge-graph-demo.mov" controls muted playsinline title="Graphify knowledge graph demo"></video>
+![Graphify knowledge graph demo](assets/graphify-knowledge-graph-demo.gif)
 
 [Watch the Graphify demo](assets/graphify-knowledge-graph-demo.mov)
 
