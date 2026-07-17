@@ -108,7 +108,7 @@ Different marketing requests use different entry points. If a skill exists for t
 |-----------|------------|
 | Broad or cross-channel marketing work | `/marketing-os` - routes, prioritizes, synthesizes, and closes the loop |
 | Campaign, content, CRM, or ops task creation | `/marketing-brief` - writes the full tracker brief |
-| Daily work and risk scan | `/good-morning` |
+| Daily work and risk scan | `/daily-brief` |
 | Capturing campaign or workflow learnings | `/retro` |
 | Checking repo health | `/health-check` |
 | Extracting tribal knowledge | `/knowledge-interview` |
@@ -140,9 +140,9 @@ For broad requests, start with `/marketing-os`; it chooses from this registry an
 
 **Catch-all:** `/marketing-os` may invoke any skill in `.claude/skills/` when it fits the task, even if the skill is not listed here. When unsure, consult `/list-skills`.
 
-## Morning Brief Sources
+## Daily Brief Sources
 
-The `/good-morning` skill reads this table to decide what to include in the daily brief. Uncomment sources your team uses.
+The `/daily-brief` skill reads this table to decide what to include in the daily brief. Uncomment sources your team uses.
 
 | Source | Type | Config | Enabled |
 |--------|------|--------|---------|

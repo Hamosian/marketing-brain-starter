@@ -39,7 +39,7 @@ After setup, try:
 
 ### Confirm the skills loaded (5 min)
 
-Say "what skills do you have?" You should see: marketing-os, good-morning, marketing-brief, retro, health-check, knowledge-interview, team-intro, and list-skills.
+Say "what skills do you have?" You should see: marketing-os, daily-brief, marketing-brief, retro, health-check, knowledge-interview, team-intro, and list-skills.
 
 ### Document the first marketing system (20 min)
 

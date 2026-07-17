@@ -160,7 +160,7 @@ Process at least:
 - `references/slack.md`
 - `references/monday_boards.md`
 - `references/other_teams.md`
-- `.claude/skills/good-morning/SKILL.md`
+- `.claude/skills/daily-brief/SKILL.md`
 - `.claude/skills/marketing-brief/SKILL.md`
 
 ## Step 8: Populate Core Tables

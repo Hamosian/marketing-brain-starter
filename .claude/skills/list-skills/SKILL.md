@@ -28,7 +28,7 @@ Group skills by marketing operating domain:
 ### Daily Operations
 | Skill | Say something like... | What it does |
 |-------|-----------------------|--------------|
-| `good-morning` | "good morning", "morning brief" | Daily brief with active marketing work, blockers, Slack highlights, and next actions |
+| `daily-brief` | "good morning", "morning brief" | Daily brief with active marketing work, blockers, Slack highlights, and next actions |
 
 ### Campaign & Work Intake
 | Skill | Say something like... | What it does |

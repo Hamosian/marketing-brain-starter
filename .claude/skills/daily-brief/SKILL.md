@@ -1,9 +1,9 @@
 ---
-name: good-morning
+name: daily-brief
 description: Use this skill when the user says "good morning", "morning brief", "daily brief", "daily standup", "catch me up", "what happened overnight", "what's going on today", "start of day", or wants a daily marketing summary of active tracker work, open blockers, Slack activity, upcoming launches, risks, and recommended next actions.
 ---
 
-# Good Morning Marketing Brief
+# Daily Marketing Brief
 
 Generate a daily brief that helps a marketer orient in 60 seconds: active work, urgent blockers, launch timing, Slack decisions, and the next few moves.
 
@@ -11,7 +11,7 @@ Fetch all enabled sources in parallel before rendering. Speed matters because th
 
 ## Step 1: Read Source Registry
 
-Read the **Morning Brief Sources** table from `CLAUDE.md`. For each source where Enabled = "Yes", fetch the corresponding data. Skip commented-out or missing sources silently.
+Read the **Daily Brief Sources** table from `CLAUDE.md`. For each source where Enabled = "Yes", fetch the corresponding data. Skip commented-out or missing sources silently.
 
 ## Source Handling
 
@@ -59,7 +59,7 @@ Only render sections for sources that were enabled and fetched. Do not show empt
 Use this structure:
 
 ```markdown
-# Good Morning Brief - [Weekday, Month DD, YYYY]
+# Daily Brief - [Weekday, Month DD, YYYY]
 
 ## Active Work
 Active work: [N] open, [X] blocked, [Y] due this week, [Z] high priority

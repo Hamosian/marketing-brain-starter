@@ -32,7 +32,7 @@ Claude loads only the context needed for the current request. Campaign learnings
 |-------|-----------------------|--------------|
 | `setup` | "set up my marketing brain" | One-time onboarding wizard that turns placeholders into your real marketing operating context |
 | `marketing-os` | "run the marketing OS" | Routes broad marketing requests across campaign, content, CRM, web, paid, lifecycle, and measurement work |
-| `good-morning` | "good morning", "morning brief" | Daily brief with active marketing work, open blockers, Slack highlights, and recommended actions |
+| `daily-brief` | "good morning", "morning brief" | Daily brief with active marketing work, open blockers, Slack highlights, and recommended actions |
 | `marketing-brief` | "create a task", "write this up" | Turns a request into a campaign-ready tracker brief with Why, Audience, Message, Channel, and Done When |
 | `retro` | "let's retro" | Captures campaign and workflow learnings so the next launch starts ahead |
 | `health-check` | "health check", "stale docs" | Finds stale system docs, missing references, and routing gaps |
@@ -51,7 +51,7 @@ Plus:
 
 The starter is intentionally small. The intended path:
 
-1. **Week 1:** run `/setup`, document your 2-3 highest-leverage marketing systems, and use `/good-morning` daily.
+1. **Week 1:** run `/setup`, document your 2-3 highest-leverage marketing systems, and use `/daily-brief` daily.
 2. **As you work:** end new or messy workflows with `/retro` so launch notes, channel learnings, and workflow fixes land in the repo.
 3. **As you scale:** add specialist skills for CRM, lifecycle, paid acquisition, website, SEO, content, events, partner marketing, or measurement, then register them in `CLAUDE.md`.
 
