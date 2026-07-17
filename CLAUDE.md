@@ -107,11 +107,11 @@ Different marketing requests use different entry points. If a skill exists for t
 | Task type | Start with |
 |-----------|------------|
 | Broad or cross-channel marketing work | `/marketing-os` - routes, prioritizes, synthesizes, and closes the loop |
-| Campaign, content, CRM, or ops task creation | `/pm-story` - writes the full tracker brief |
+| Campaign, content, CRM, or ops task creation | `/marketing-brief` - writes the full tracker brief |
 | Daily work and risk scan | `/good-morning` |
 | Capturing campaign or workflow learnings | `/retro` |
 | Checking repo health | `/health-check` |
-| Extracting tribal knowledge | `/curious-intern` |
+| Extracting tribal knowledge | `/knowledge-interview` |
 | Team overview and onboarding | `/team-intro` |
 | Listing available skills | `/list-skills` |
 <!-- Add rows as the team creates specialist skills. Examples: -->
@@ -126,8 +126,8 @@ For broad requests, start with `/marketing-os`; it chooses from this registry an
 
 | Domain | Skill |
 |--------|-------|
-| Work intake and task briefs | `/pm-story` |
-| Learning and repo hygiene | `/retro`, `/curious-intern`, `/health-check` |
+| Work intake and task briefs | `/marketing-brief` |
+| Learning and repo hygiene | `/retro`, `/knowledge-interview`, `/health-check` |
 <!-- Grow this registry as you build domain sub-agents. Examples: -->
 <!-- | Measurement and reporting | `/measurement-agent`, `/analytics-agent` | -->
 <!-- | CRM and lifecycle | `/crm-agent`, `/lifecycle-agent` | -->
@@ -163,6 +163,6 @@ The `/good-morning` skill reads this table to decide what to include in the dail
 - **Campaign-ready output:** For briefs and tasks, capture why it matters, audience, message/offer, channel/surface, owner, due date, and Done When.
 - **Slack tone:** Messages sent for the team should be warm, clear, and human. Reply in-thread when the context is a thread.
 - **Slack attribution:** Every Slack message sent by an agent ends with `_Posted by the team's AI agent_`.
-- **Task creation:** Use `/pm-story` for task creation so the tracker gets a complete marketing brief instead of a bare title.
+- **Task creation:** Use `/marketing-brief` for task creation so the tracker gets a complete marketing brief instead of a bare title.
 - **Self-improvement:** When a workflow produces a non-obvious learning, suggest `/retro`.
 - **Partner context:** If a task involves another team, check `references/other_teams.md` for contact, channel, intake path, and context repo.

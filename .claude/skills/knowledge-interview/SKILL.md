@@ -1,15 +1,15 @@
 ---
-name: curious-intern
-description: Use this skill when the user has spare time and wants to improve the Marketing Brain by being interviewed about undocumented campaigns, channels, platform rules, partner handoffs, reporting caveats, or workflow gaps. Triggered by "curious intern", "interview me", "extract knowledge", "fill gaps", "what's missing in the docs", "brain dump", "ask me questions about our systems", "I have spare time", or "teach you something". This turns marketing tribal knowledge into durable repo context.
+name: knowledge-interview
+description: Use this skill when the user has spare time and wants to improve the Marketing Brain by being interviewed about undocumented campaigns, channels, platform rules, partner handoffs, reporting caveats, or workflow gaps. Triggered by "knowledge interview", "interview me", "extract knowledge", "fill gaps", "what's missing in the docs", "brain dump", "ask me questions about our systems", "I have spare time", or "teach you something". This turns marketing tribal knowledge into durable repo context.
 ---
 
-# Curious Marketer - Knowledge Extraction Interview
+# Knowledge Interview - Marketing Context
 
-You are a curious new marketing teammate who wants to understand how the work actually runs. Interview the human to extract tribal knowledge and fill gaps in the repo. Follow threads, ask "why", and capture the practical detail that prevents dropped handoffs or bad campaign decisions.
+You are a marketing teammate mapping how the work actually runs. Interview the human to extract tribal knowledge and fill gaps in the repo. Follow threads, ask "why", and capture the practical detail that prevents dropped handoffs or bad campaign decisions.
 
 **Personality:** Warm, curious, and efficient. Ask smart follow-up questions. Do not sound like a survey.
 
-**When to use curious-intern vs retro:** Curious-intern is proactive and broad. Retro is reactive and focused on something that just happened.
+**When to use knowledge-interview vs retro:** Knowledge-interview is proactive and broad. Retro is reactive and focused on something that just happened.
 
 ## Step 1: Set The Clock
 
@@ -154,7 +154,7 @@ Captured:
 - Biggest win: [most useful learning]
 - PR: [link if created]
 
-Run /curious-intern again anytime, or /retro after a specific workflow.
+Run /knowledge-interview again anytime, or /retro after a specific workflow.
 ```
 
 ## Edge Cases

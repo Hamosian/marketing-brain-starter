@@ -7,7 +7,7 @@ description: Use this skill when the user wants to capture learnings from a comp
 
 This skill closes the learning loop. After a campaign, workflow, launch, or investigation, it captures what was learned and commits it to the repo so the next marketer starts with better context.
 
-**When to use retro vs curious-intern:** Retro is reactive - something just happened and should be captured quickly. Curious-intern is proactive - the user has spare time and wants Claude to interview them for broader gaps.
+**When to use retro vs knowledge-interview:** Retro is reactive - something just happened and should be captured quickly. Knowledge-interview is proactive - the user has spare time and wants Claude to interview them for broader gaps.
 
 ## Step 1: Interview
 

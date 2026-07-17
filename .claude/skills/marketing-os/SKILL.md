@@ -50,8 +50,8 @@ A fresh instance starts with the core skills:
 
 | Domain | Use this skill | Owns |
 |--------|----------------|------|
-| Work intake and task briefs | `pm-story` | campaign-ready tracker task creation |
-| Learning and repo hygiene | `retro`, `curious-intern`, `health-check` | durable knowledge, gaps, stale context |
+| Work intake and task briefs | `marketing-brief` | campaign-ready tracker task creation |
+| Learning and repo hygiene | `retro`, `knowledge-interview`, `health-check` | durable knowledge, gaps, stale context |
 
 As the team adds domain skills for CRM, lifecycle, paid acquisition, website, SEO, content, events, partner marketing, or measurement, add them to `CLAUDE.md` and route through them here.
 
@@ -98,7 +98,7 @@ Use these states when creating or updating work:
 - Never mutate CRM, monday, Notion, ClickUp, Slack, CMS, ad platforms, email tools, or production workflows without user confirmation unless a specific automation skill explicitly allows it.
 - Draft outbound Slack/email/customer-facing copy before sending.
 - For analysis, name the source and limitation before making a recommendation.
-- For task creation, use `pm-story` rather than creating tracker items directly.
+- For task creation, use `marketing-brief` rather than creating tracker items directly.
 
 ## Output Formats
 

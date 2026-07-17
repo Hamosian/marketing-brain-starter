@@ -161,7 +161,7 @@ Process at least:
 - `references/monday_boards.md`
 - `references/other_teams.md`
 - `.claude/skills/good-morning/SKILL.md`
-- `.claude/skills/pm-story/SKILL.md`
+- `.claude/skills/marketing-brief/SKILL.md`
 
 ## Step 8: Populate Core Tables
 
@@ -202,7 +202,7 @@ Create `systems/owned/<slug>.md` for each owned system using the full marketing 
 > One-line description from setup.
 
 ## Overview
-[To be filled in - say "teach me about System Name" or run /curious-intern]
+[To be filled in - say "teach me about System Name" or run /knowledge-interview]
 
 ## How Claude Works With This
 | Action | How |
@@ -295,7 +295,7 @@ Your Marketing Brain is ready.
 - Say "teach me about [most important system]" to fill the first system doc.
 - Fill exact tracker field keys in references/monday_boards.md, whether the team uses monday, Notion, or ClickUp.
 - Add partner teams in references/other_teams.md.
-- Run /curious-intern when you have 15 minutes.
+- Run /knowledge-interview when you have 15 minutes.
 - Run /retro after the next campaign or workflow that teaches something useful.
 ```
 

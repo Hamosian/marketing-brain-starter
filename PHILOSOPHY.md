@@ -71,7 +71,7 @@ The repo works through **progressive disclosure**: give Claude a map first, then
 
 2. Targeted files (loaded on demand)
    - "Check lifecycle nurture performance" -> read the CRM/lifecycle system doc
-   - "Create a task" -> trigger pm-story and read the configured tracker references
+   - "Create a task" -> trigger marketing-brief and read the configured tracker references
 
 3. Deep knowledge (loaded within skills)
    - A skill may load campaign checklists, query patterns, or platform-specific notes

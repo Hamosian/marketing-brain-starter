@@ -1,6 +1,6 @@
 ---
-name: pm-story
-description: "ALWAYS use this skill - do not call Monday MCP tools directly - when the user wants to create, document, update, or sharpen a marketing task, campaign brief, content request, CRM change, website request, paid experiment, analytics request, or board item. Triggered by \"pm-story\", \"create a task\", \"add this to the board\", \"write this up\", \"turn this into a brief\", \"log this request\", \"track this\", \"open a task\", \"document this task\", \"update this task\", \"launch task\", \"campaign task\", or any message that includes a Monday task URL with intent to improve the task context."
+name: marketing-brief
+description: "ALWAYS use this skill - do not call Monday MCP tools directly - when the user wants to create, document, update, or sharpen a marketing task, campaign brief, content request, CRM change, website request, paid experiment, analytics request, or board item. Triggered by \"marketing-brief\", \"create a task\", \"add this to the board\", \"write this up\", \"turn this into a brief\", \"log this request\", \"track this\", \"open a task\", \"document this task\", \"update this task\", \"launch task\", \"campaign task\", or any message that includes a Monday task URL with intent to improve the task context."
 user-invocable: true
 ---
 

@@ -33,10 +33,10 @@ Claude loads only the context needed for the current request. Campaign learnings
 | `setup` | "set up my marketing brain" | One-time onboarding wizard that turns placeholders into your real marketing operating context |
 | `marketing-os` | "run the marketing OS" | Routes broad marketing requests across campaign, content, CRM, web, paid, lifecycle, and measurement work |
 | `good-morning` | "good morning", "morning brief" | Daily brief with active marketing work, open blockers, Slack highlights, and recommended actions |
-| `pm-story` | "create a task", "write this up" | Turns a request into a campaign-ready tracker brief with Why, Audience, Message, Channel, and Done When |
+| `marketing-brief` | "create a task", "write this up" | Turns a request into a campaign-ready tracker brief with Why, Audience, Message, Channel, and Done When |
 | `retro` | "let's retro" | Captures campaign and workflow learnings so the next launch starts ahead |
 | `health-check` | "health check", "stale docs" | Finds stale system docs, missing references, and routing gaps |
-| `curious-intern` | "interview me", "fill gaps" | Interviews the team to extract marketing tribal knowledge into durable docs |
+| `knowledge-interview` | "interview me", "fill gaps" | Interviews the team to extract marketing tribal knowledge into durable docs |
 | `team-intro` | "tell me about the team", "onboard me" | Gives new teammates a map of the team, systems, channels, and workflows |
 | `list-skills` | "what skills do you have?" | Lists every available skill, read live from the repo |
 

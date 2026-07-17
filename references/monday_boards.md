@@ -18,7 +18,7 @@
 
 ## How Work Is Organized
 
-<!-- Pick one and document it. Skills like /good-morning and /pm-story read this:
+<!-- Pick one and document it. Skills like /good-morning and /marketing-brief read this:
 - CYCLES: marketing runs active work in planning cycles; filter by the current cycle.
 - GROUPS: the board uses groups such as "This Week", "In Flight", "Blocked", "Backlog", or "Launched";
   list which group IDs count as active and which should be ignored.

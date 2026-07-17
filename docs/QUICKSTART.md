@@ -39,7 +39,7 @@ After setup, try:
 
 ### Confirm the skills loaded (5 min)
 
-Say "what skills do you have?" You should see: marketing-os, good-morning, pm-story, retro, health-check, curious-intern, team-intro, and list-skills.
+Say "what skills do you have?" You should see: marketing-os, good-morning, marketing-brief, retro, health-check, knowledge-interview, team-intro, and list-skills.
 
 ### Document the first marketing system (20 min)
 
@@ -101,7 +101,7 @@ Tell Claude: "I want to create a skill for [workflow]." Use the `/skill-creator`
 Show the team three things:
 
 1. A real "good morning" brief
-2. A campaign/task brief created with `/pm-story`
+2. A campaign/task brief created with `/marketing-brief`
 3. A system doc Claude uses during a workflow
 
 This is the adoption moment. Marketers believe the brain when it helps with work they already recognize.
@@ -134,7 +134,7 @@ Complete:
 
 ### Week 4: Health check and retro
 
-Run `/health-check` to find stale docs, missing owners, and routing gaps. Run `/curious-intern` to extract the knowledge that still lives in people's heads.
+Run `/health-check` to find stale docs, missing owners, and routing gaps. Run `/knowledge-interview` to extract the knowledge that still lives in people's heads.
 
 ## Decision Trees
 
@@ -194,7 +194,7 @@ When introducing the Marketing Brain:
 
 1. **Show the work first.** Do not start with repo philosophy.
 2. **Run a brief:** say "good morning" and show the operating readout.
-3. **Create a task:** pick a real request and run `/pm-story`.
+3. **Create a task:** pick a real request and run `/marketing-brief`.
 4. **Use context:** ask about a system and show Claude reading the relevant doc.
 5. **Then explain the loop:** every useful learning gets captured back into the repo.
 6. **Assign ownership:** each marketer documents one system, channel, or repeated workflow in the first week.
@@ -287,6 +287,6 @@ Review the Marketing Brain quarterly:
 ### Staying Current
 
 - Run `/health-check` monthly.
-- Run `/curious-intern` after major campaign, platform, or org changes.
+- Run `/knowledge-interview` after major campaign, platform, or org changes.
 - Update `last-reviewed` dates when you verify a system doc.
 - Delete example system docs once real docs exist.

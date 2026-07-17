@@ -22,10 +22,10 @@ Open Claude Code in this repo and say any of these:
 |-------|-----------------|-------------|
 | `marketing-os` | "run the marketing OS", "triage marketing", "plan this campaign" | Top-level router for broad campaign, channel, planning, and performance work |
 | `good-morning` | "good morning", "morning brief", "catch me up" | Daily brief with active marketing work, blockers, Slack highlights, and actions |
-| `pm-story` | "create a task", "write this up", "turn this into a brief" | Structured work-tracker task creation grounded in marketing context |
+| `marketing-brief` | "create a task", "write this up", "turn this into a brief" | Structured work-tracker task creation grounded in marketing context |
 | `retro` | "let's retro", "capture what we learned" | Captures launch, campaign, and workflow learnings in the repo |
 | `health-check` | "health check", "stale docs" | Checks freshness, placeholders, references, and skill routing |
-| `curious-intern` | "interview me", "fill gaps", "brain dump" | Interview flow for extracting marketing tribal knowledge |
+| `knowledge-interview` | "interview me", "fill gaps", "brain dump" | Interview flow for extracting marketing tribal knowledge |
 | `team-intro` | "tell me about the team", "onboard me" | Marketing team, systems, channels, and workflow overview |
 | `list-skills` | "what skills do you have", "list skills" | Shows all available skills from the repo |
 <!-- Add custom skills here as you create them -->

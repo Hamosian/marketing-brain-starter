@@ -72,7 +72,7 @@ The CRM and Lifecycle system is where marketing turns audience intent into targe
 
 ## Pointers
 
-- **Skills:** `/marketing-os`, `/pm-story`, `/retro`
+- **Skills:** `/marketing-os`, `/marketing-brief`, `/retro`
 - **Dashboards:** Lifecycle Performance, Deliverability, Lead Routing
 - **Boards:** Marketing Tasks, Campaign Calendar
 - **Channels:** `#lifecycle-marketing`, `#sales-ops`

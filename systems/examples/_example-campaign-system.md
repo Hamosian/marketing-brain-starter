@@ -69,7 +69,7 @@ Campaign Operations coordinates the work that turns a marketing idea into a laun
 
 ## Pointers
 
-- **Skills:** `/marketing-os`, `/pm-story`, `/retro`
+- **Skills:** `/marketing-os`, `/marketing-brief`, `/retro`
 - **Boards:** Campaign Calendar, Marketing Tasks
 - **Channels:** `#campaign-launches`, `#marketing-announcements`
 - **Docs/assets:** Campaign folder template in Drive

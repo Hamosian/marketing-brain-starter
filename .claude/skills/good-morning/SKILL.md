@@ -93,7 +93,7 @@ If a section has no items, say so in one line and move on.
 
 End with 3-5 concrete actions derived from the data. If the user picks one, help immediately:
 
-- Create or update a tracker task with `/pm-story`
+- Create or update a tracker task with `/marketing-brief`
 - Draft a Slack reply
 - Open the relevant system doc
 - Prepare a quick triage table
